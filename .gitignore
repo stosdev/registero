@@ -1,6 +1,9 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
+.ropeproject/
+secretkey.py
+settings.py
 
 # C extensions
 *.so
