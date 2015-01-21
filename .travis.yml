@@ -8,4 +8,6 @@ before_script:
   - cp registero/default_settings.py registero/settings.py
 script:
   - pep8 news contest_registration registero/  --exclude=migrations,default_settings.py --ignore=E128
+  - python manage.py makemigrations
+  - python manage.py syncdb
   - python manage.py test
