@@ -5,7 +5,8 @@ from django.db import models
 
 
 class Team(models.Model):
-    name = models.CharField(_("Insititute name"), max_length=255)
+    order = models.IntegerField(_("Order"))
+    name = models.CharField(_("Insititute name"), max_length=255) # TODO: Move to couch user profile
     name.help_text = _("The name of the school/university \
                        providing this team.")
     couch = models.ForeignKey(User, verbose_name=_("Couch"),
