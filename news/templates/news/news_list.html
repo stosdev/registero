@@ -2,6 +2,6 @@
 
 {% block content %}
 {% for news in news_list %}
-  <a href="">{{ news.title }}</a>
+<a href="{% url 'news.views.detail' news.pk %}">{{ news.title }}</a>
 {% endfor %}
 {% endblock %}
