@@ -46,6 +46,9 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'django.contrib.flatpages',
+    'guardian',
     'news',
     'registration'
 )
@@ -58,12 +61,22 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
+)
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend', # this is default
+    'guardian.backends.ObjectPermissionBackend',
 )
 
 ROOT_URLCONF = 'registero.urls'
 
 WSGI_APPLICATION = 'registero.wsgi.application'
 
+
+TEMPLATE_DIRS = (
+    p('templates'),
+)
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
@@ -88,14 +101,11 @@ USE_L10N = True
 
 USE_TZ = True
 
+ANONYMOUS_USER_ID = -1
+
+SITE_ID = 1
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
-
-# Template dirs
-TEMPLATE_DIRS = (
-    p('templates'),
-)
-
