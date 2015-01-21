@@ -4,11 +4,20 @@ from django.contrib.auth.models import User
 from django.db import models
 
 
+VERBOSE_NAME = _('Contest registration')
+
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(User)
+    accepted_requlations = models.BooleanField(
+        _("Accepted contest regulations"), default=False)
+    institute_name = models.CharField(_("Insititute name"), max_length=255)
+    institute_name.help_text = _("The name of the school/university \
+                       providing this team.")
+
+
 class Team(models.Model):
     order = models.IntegerField(_("Order"))
-    name = models.CharField(_("Insititute name"), max_length=255) # TODO: Move to couch user profile
-    name.help_text = _("The name of the school/university \
-                       providing this team.")
     couch = models.ForeignKey(User, verbose_name=_("Couch"),
                               related_name='teams')
 
@@ -17,7 +26,7 @@ class Team(models.Model):
         verbose_name_plural = _("Teams")
 
     def __unicode__(self):
-        return u'{}'.format(self.name)
+        return u'Team {} for {}'.format(self.order, self.couch)
 
 
 class Participant(models.Model):

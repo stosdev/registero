@@ -6,8 +6,7 @@ from models import Team, Participant
 
 @admin.register(Team)
 class TeamAdmin(GuardedModelAdmin):
-    list_display = ('name', )
-    search_fields = ('name', 'participants__first_name',
+    search_fields = ('participants__first_name',
                      'participants__last_name')
 
 

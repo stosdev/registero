@@ -48,9 +48,10 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'django.contrib.flatpages',
+    'registration',
     'guardian',
     'news',
-    'registration'
+    'contest_registration',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -104,6 +105,10 @@ USE_TZ = True
 ANONYMOUS_USER_ID = -1
 
 SITE_ID = 1
+
+ACCOUNT_ACTIVATION_DAYS = 7
+
+REGISTRATION_AUTO_LOGIN = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/

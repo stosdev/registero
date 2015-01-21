@@ -4,6 +4,9 @@ from django.db import models
 from django.utils import timezone
 
 
+VERBOSE_NAME = _('News')
+
+
 class News(models.Model):
     title = models.CharField(_("Title"), max_length=255)
     content = models.TextField(_("Content"))
