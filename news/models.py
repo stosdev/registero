@@ -22,4 +22,3 @@ class News(models.Model):
 
     def __unicode__(self):
         return "{} {} {}".format(self.id, self.title, self.timestamp)
-
