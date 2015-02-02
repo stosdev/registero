@@ -4,9 +4,6 @@ from django.contrib.auth.models import User
 from django.db import models
 
 
-VERBOSE_NAME = _('Contest registration')
-
-
 class UserProfile(models.Model):
     user = models.OneToOneField(User)
     accepted_requlations = models.BooleanField(
@@ -30,10 +27,20 @@ class Team(models.Model):
 
 
 class Participant(models.Model):
+
+    SHIRT_SIZES = (
+        ('XS', _("Extra small")),
+        ('S', _("Small")),
+        ('L', _("Large")),
+        ('XL', _("Extra large"))
+    )
+
     first_name = models.CharField(_("First name"), max_length=255)
     last_name = models.CharField(_("Last name"), max_length=255)
     team = models.ForeignKey(Team, verbose_name=_("Team"),
                              related_name='participants')
+    shirt_size = models.CharField(_("Shirt size"), max_length=2,
+                                  choices=SHIRT_SIZES)
 
     class Meta:
         verbose_name = _("Participant")
