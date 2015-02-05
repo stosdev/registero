@@ -80,6 +80,11 @@ TEMPLATE_DIRS = (
     p('templates'),
 )
 
+# Additional locations of static files
+STATICFILES_DIRS = (
+    p('static/'),
+)
+
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
