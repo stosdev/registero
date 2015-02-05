@@ -28,11 +28,18 @@ class Team(models.Model):
 
 class Participant(models.Model):
 
+    EXTRA_SMALL = 'XS'
+    SMALL = 'S'
+    MEDIUM = 'M'
+    LARGE = 'L'
+    EXTRA_LARGE = 'XL'
+
     SHIRT_SIZES = (
-        ('XS', _("Extra small")),
-        ('S', _("Small")),
-        ('L', _("Large")),
-        ('XL', _("Extra large"))
+        (EXTRA_SMALL, _("Extra small")),
+        (SMALL, _("Small")),
+        (MEDIUM, _("Medium")),
+        (LARGE, _("Large")),
+        (EXTRA_LARGE, _("Extra large"))
     )
 
     first_name = models.CharField(_("First name"), max_length=255)
@@ -40,7 +47,7 @@ class Participant(models.Model):
     team = models.ForeignKey(Team, verbose_name=_("Team"),
                              related_name='participants')
     shirt_size = models.CharField(_("Shirt size"), max_length=2,
-                                  choices=SHIRT_SIZES)
+                                  choices=SHIRT_SIZES, default=MEDIUM)
 
     class Meta:
         verbose_name = _("Participant")
