@@ -120,7 +120,7 @@ STATIC_URL = '/static/'
 
 LOCALE_PATHS = (
     p('locale'),
-    p('news/locale').
+    p('news/locale'),
     p('contest_registration/locale'),
 )
 
