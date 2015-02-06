@@ -10,6 +10,8 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+from django.utils.translation import ugettext_lazy as _
+
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 p = lambda *x: os.path.join(BASE_DIR, *x)
 
@@ -75,14 +77,8 @@ ROOT_URLCONF = 'registero.urls'
 
 WSGI_APPLICATION = 'registero.wsgi.application'
 
-
 TEMPLATE_DIRS = (
     p('templates'),
-)
-
-# Additional locations of static files
-STATICFILES_DIRS = (
-    p('static/'),
 )
 
 # Database
@@ -98,7 +94,7 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 
-LANGUAGE_CODE = 'pl-pl'
+LANGUAGE_CODE = 'pl'
 
 TIME_ZONE = 'Europe/Warsaw'
 
@@ -118,5 +114,18 @@ REGISTRATION_AUTO_LOGIN = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
+STATIC_ROOT = p('static/')
 
 STATIC_URL = '/static/'
+
+LOCALE_PATHS = (
+    p('locale'),
+    p('news/locale').
+    p('contest_registration/locale'),
+)
+
+LANGUAGES = (
+    ('en', _('English')),
+    ('pl', _('Polish')),
+)
+

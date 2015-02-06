@@ -9,8 +9,8 @@ class UserProfile(models.Model):
     accepted_requlations = models.BooleanField(
         _("Accepted contest regulations"), default=False)
     institute_name = models.CharField(_("Insititute name"), max_length=255)
-    institute_name.help_text = _("The name of the school/university \
-                       providing this team.")
+    institute_name.help_text = _(
+        "The name of the school/university providing this team.")
 
 
 class Team(models.Model):

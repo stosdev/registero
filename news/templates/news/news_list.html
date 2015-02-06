@@ -1,7 +1,16 @@
 {% extends "base.html" %}
 
+{% load i18n %}
+
 {% block content %}
 {% for news in news_list %}
-<a href="{% url 'news.views.detail' news.pk %}">{{ news.title }}</a>
+<div class="news">
+  <h3 class="text-inline">{{ news.title }}</h3>
+  <small class="text-inline">{{ news.timestamp }}</small>
+  <p>{{ news.content | safe }}</p>
+  <hr />
+</div>
+{% empty %}
+<h3 class="text-center">{% trans "No news yet." %}</h3>
 {% endfor %}
 {% endblock %}

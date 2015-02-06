@@ -1,0 +1,91 @@
+# Registero translation.
+# Copyright (C) Registero translation team.
+# This file is distributed under the same license as the Registero package.
+# Paweł Jan Czochański <czochanski@gmail.com>, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-02-06 16:39+0100\n"
+"PO-Revision-Date: 2015-02-06 14:31+01\n"
+"Last-Translator: Paweł Jan Czochański <czochanski@gmail.com>\n"
+"Language-Team: pl\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+
+#: contest_registration/apps.py:7
+msgid "Contest registration"
+msgstr "Rejestracja na turniej"
+
+#: contest_registration/models.py:10
+msgid "Accepted contest regulations"
+msgstr "Zaakceptował regulamin turnieju"
+
+#: contest_registration/models.py:11
+msgid "Insititute name"
+msgstr "Nazwa ośrodka"
+
+#: contest_registration/models.py:13
+msgid "The name of the school/university providing this team."
+msgstr "Nazwa szkoły/uczelni wyższej z której pochodzi dana drużyna."
+
+#: contest_registration/models.py:17
+msgid "Order"
+msgstr "Kolejność"
+
+#: contest_registration/models.py:18
+msgid "Couch"
+msgstr "Trener"
+
+#: contest_registration/models.py:22 contest_registration/models.py:47
+msgid "Team"
+msgstr "Drużyna"
+
+#: contest_registration/models.py:23
+msgid "Teams"
+msgstr "Drużyny"
+
+#: contest_registration/models.py:38
+msgid "Extra small"
+msgstr "Bardzo mała (XS)"
+
+#: contest_registration/models.py:39
+msgid "Small"
+msgstr "Mała (S)"
+
+#: contest_registration/models.py:40
+msgid "Medium"
+msgstr "Średnia (M)"
+
+#: contest_registration/models.py:41
+msgid "Large"
+msgstr "Duża (L)"
+
+#: contest_registration/models.py:42
+msgid "Extra large"
+msgstr "Bardzo duża (XL)"
+
+#: contest_registration/models.py:45
+msgid "First name"
+msgstr "Imię"
+
+#: contest_registration/models.py:46
+msgid "Last name"
+msgstr "Nazwisko"
+
+#: contest_registration/models.py:49
+msgid "Shirt size"
+msgstr "Wielkość koszulki"
+
+#: contest_registration/models.py:53
+msgid "Participant"
+msgstr "Uczestnik"
+
+#: contest_registration/models.py:54
+msgid "Participants"
+msgstr "Uczestnicy"

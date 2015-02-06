@@ -1,0 +1,160 @@
+# Registero translation.
+# Copyright (C) Registero translation team.
+# This file is distributed under the same license as the Registero package.
+# Paweł Jan Czochański <czochanski@gmail.com>, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-02-06 16:39+0100\n"
+"PO-Revision-Date: 2015-02-06 14:31+01\n"
+"Last-Translator: Paweł Jan Czochański <czochanski@gmail.com>\n"
+"Language-Team: pl\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+
+#: registero/default_settings.py:128 registero/settings.py:129
+msgid "English"
+msgstr "Angielski"
+
+#: registero/default_settings.py:129 registero/settings.py:130
+msgid "Polish"
+msgstr "Polski"
+
+#: templates/base.html:14
+msgid "Podlachia Team Programming Contest 2015"
+msgstr "Podlaski Turniej w Programowaniu Zespołowym 2015"
+
+#: templates/base.html:42
+msgid "Home"
+msgstr "Do góry"
+
+#: templates/base.html:45
+msgid "About"
+msgstr "O turnieju"
+
+#: templates/base.html:48 templates/base.html.py:99
+msgid "Details"
+msgstr "Cechy turnieju"
+
+#: templates/base.html:51 templates/base.html.py:161
+msgid "Sponsors"
+msgstr "Sponsorzy"
+
+#: templates/base.html:54
+msgid "News"
+msgstr ""
+
+#: templates/base.html:57 templates/base.html.py:196
+msgid "Contact"
+msgstr "Kontakt"
+
+#: templates/base.html:67
+msgctxt "Logo text"
+msgid "Podlachia Team Programming Contest"
+msgstr "Podlaski Turniej<br />w Programowaniu Zespołowym"
+
+#: templates/base.html:68
+msgid "Register a team and take part!"
+msgstr "Zarejestruj drużynę i weź udział!"
+
+#: templates/base.html:73
+msgid "Register teams"
+msgstr "Zarejestruj drużyny"
+
+#: templates/base.html:74
+msgid "More info"
+msgstr "Więcej informacji"
+
+#: templates/base.html:84
+msgid "Podlachia Team Programming Contest"
+msgstr "Podlaski Turniej w Programowaniu Zespołowym"
+
+#: templates/base.html:85
+msgid ""
+"An annual programming event created by, and organized at the Białystok "
+"University of Technology Information Technology Faculty on which (number!!!) "
+"two to three person teams compete with each other for the Białystok "
+"University of Technology Information Technology Faculty deans cup in two age "
+"categories - school, and university levels."
+msgstr ""
+"Coroczne wydarzenie programistyczne odbywające się na Wydziale Informatyki "
+"Politechniki Białostockiej. (ilee!!!!) dwu- lub trzyosobowych drużyn "
+"rywalizuje ze sobą o puchar Dziekana Wydziału Informatyki Politechniki "
+"Białostockiej w dwóch kategoriach wiekowych - uczniów szkół średnich i "
+"studentów."
+
+#: templates/base.html:109
+msgid "Teams"
+msgstr "Drużyny"
+
+#: templates/base.html:111
+msgid "Teams can consist of from two to three."
+msgstr "Drużyny mogą składać się z dwóch do trzech osób."
+
+#: templates/base.html:121
+msgid "Six winning teams"
+msgstr "Sześć zwycięskich drużyn."
+
+#: templates/base.html:123
+msgid ""
+"Three winning places in two age categories - school level and university "
+"level."
+msgstr ""
+"Po trzy miejsca w dwóch kategoriach wiekowych - uczniowiowskiej i "
+"studenckiej."
+
+#: templates/base.html:133
+msgid "Accommodation"
+msgstr "Zakwaterowanie"
+
+#: templates/base.html:135
+msgid ""
+"For arrival teams for an additional charge an accommodation is provided in "
+"Białystok University of Technology, and Białystok University dorms"
+msgstr ""
+"Dla przyjezdnych drużyn za dopłatą zapewniamy zakwaterowanie <br />w "
+"akademikach Politechniki Białostockiej i Uniwersytetu <br />w Białymstoku."
+
+#: templates/base.html:145
+msgid "Convinient time and place"
+msgstr "Dogodne miejsce i termin"
+
+#: templates/base.html:147
+msgid ""
+"21-22 od March (Hooky Day) is the perfect time to run off from classes to "
+"Białystok University of Technology Information Technology Faculty building "
+"and win yourself a trophy."
+msgstr ""
+"21-22 marca (dzień wagarowicza) to idealny termin, by opuścić zajęcia ruszyć "
+"na Wydział Informatyki Politechniki Białostockiej i zdobyć laur zwycięzcy."
+
+#: templates/base.html:168
+msgid "Become a sponsor"
+msgstr "Zostań sponsorem"
+
+#: templates/base.html:176
+msgctxt "Plural"
+msgid "News"
+msgstr "Aktualności"
+
+#: templates/base.html:197
+msgid ""
+"Information Technology Faculty<br />Białystok University of Technology<br /"
+">Wiejska st. 45A<br />15-351 Białystok"
+msgstr ""
+"Wydział Informatyki <br />Politechniki Białostockiej<br />ul. Wiejska 45A "
+"<br />15-351 Białystok"
+
+#: templates/base.html:209
+msgid ""
+"Copyright &copy; STOS 2015. All rights reserved. Photos from the X Podlachia "
+"Team Programming Contest &copy; to Paweł Tadejko"
+msgstr ""
+"&copy; STOS 2015. Wszystkie prawa zastrzeżone. Zdjęcia z X Podlaskiego "
+"Turnieju w Programowaniu Zespołowym &copy; Paweł Tadejko"

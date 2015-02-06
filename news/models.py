@@ -1,4 +1,4 @@
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext as _, pgettext
 from django.core.urlresolvers import reverse
 from django.db import models
 from django.utils import timezone
@@ -11,7 +11,7 @@ class News(models.Model):
 
     class Meta:
         verbose_name = _("News")
-        verbose_name_plural = _("News")
+        verbose_name_plural = pgettext("Plural", "News")
         ordering = ('-timestamp', )
 
     def get_absolute_url(self):

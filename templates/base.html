@@ -1,3 +1,7 @@
+{% load staticfiles %}
+{% load i18n %}
+{% load flatpages %}
+
 <!DOCTYPE html>
 <html lang="pl">
 
@@ -7,13 +11,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Turniej</title>
+    <title>{% trans "Podlachia Team Programming Contest 2015" %}</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/stylish-portfolio.css" rel="stylesheet">
+    <link href="{% static "css/stylish-portfolio.css" %}" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
@@ -35,22 +39,22 @@
       <ul class="sidebar-nav">
         <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
         <li class="sidebar-brand">
-          <a href="#top">Do góry</a>
+          <a href="#top">{% trans "Home" %}</a>
         </li>
         <li>
-          <a href="#about">O turnieju</a>
+          <a href="#about">{% trans "About" %}</a>
         </li>
         <li>
-          <a href="#features">Cechy turnieju</a>
+          <a href="#features">{% trans "Details" %}</a>
         </li>
         <li>
-          <a href="#sponsors">Sponsorzy</a>
+          <a href="#sponsors">{% trans "Sponsors" %}</a>
         </li>
         <li>
-          <a href="#news">Aktualności</a>
+          <a href="#news">{% trans "News" %}</a>
         </li>
         <li>
-          <a href="#contact">Kontakt</a>
+          <a href="#contact">{% trans "Contact" %}</a>
         </li>
       </ul>
     </nav>
@@ -60,14 +64,14 @@
       <div class="text-vertical-center text-center">
         <div>
           <div class="title">
-            <h1>Podlaski Turniej <br/>w Programowaniu Zespołowym</h1>
-            <h3>Zarejestruj drużynę i weź udział!</h3>
+            <h1>{% blocktrans context "Logo text" %}Podlachia Team Programming Contest{% endblocktrans %}</h1>
+            <h3>{% trans "Register a team and take part!" %}</h3>
           </div>
         </div>
         <br/>
         <ul class="navigation-buttons">
-          <li><a href="#" class="btn btn-primary btn-lg"><i class="fa fa-users"></i> Zarejestruj drużyny</a></li>
-          <li><a href="#about" class="btn btn-dark btn-lg">Więcej informacji</a></li>
+          <li><a href="#" class="btn btn-primary btn-lg"><i class="fa fa-users"></i> {% trans "Register teams" %}</a></li>
+          <li><a href="#about" class="btn btn-dark btn-lg"><i class="fa fa-info"></i> {% trans "More info" %}</a></li>
         </ul>
       </div>
     </header>
@@ -77,9 +81,8 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
-            <h2>Podlaski Turniej w Programowaniu Zespołowym</h2>
-            <p class="lead">Coroczne wydarzenie programistyczne odbywające się na Wydziale Informatyki Politechniki Białostockiej. (ilee!!!!) dwu- lub trzyosobowych drużyn rywalizuje ze sobą o puchar Dziekana Wydziału Informatyki Politechniki Białostockiej w dwóch kategoriach wiekowych - uczniów szkół średnich i studentów.
-            </p>
+            <h2>{% trans "Podlachia Team Programming Contest" %}</h2>
+            <p class="lead">{% trans "An annual programming event created by, and organized at the Białystok University of Technology Information Technology Faculty on which (number!!!) two to three person teams compete with each other for the Białystok University of Technology Information Technology Faculty deans cup in two age categories - school, and university levels." %}</p>
           </div>
         </div>
         <!-- /.row -->
@@ -93,7 +96,7 @@
       <div class="container">
         <div class="row text-center">
           <div class="col-lg-10 col-lg-offset-1">
-            <h2>Cechy turnieju</h2>
+            <h2>{% trans "Details" %}</h2>
             <hr class="small">
             <div class="row">
               <div class="col-md-3 col-sm-6">
@@ -103,9 +106,9 @@
                     <i class="fa fa-users fa-stack-1x text-primary"></i>
                   </span>
                   <h4>
-                    <strong>Drużyny</strong>
+                    <strong>{% trans "Teams" %}</strong>
                   </h4>
-                  <p>Drużyny mogą się składać z od dwóch do trzech osób.</p>
+                  <p>{% trans "Teams can consist of from two to three." %}</p>
                 </div>
               </div>
               <div class="col-md-3 col-sm-6">
@@ -115,9 +118,9 @@
                     <i class="fa fa-cubes fa-stack-1x text-primary"></i>
                   </span>
                   <h4>
-                    <strong>Sześć zwycięskich drużyn</strong>
+                    <strong>{% trans "Six winning teams" %}</strong>
                   </h4>
-                  <p>Dwie kategorie wiekowe - uczniowie i studenci.</p>
+                  <p>{% trans "Three winning places in two age categories - school level and university level." %}</p>
                 </div>
               </div>
               <div class="col-md-3 col-sm-6">
@@ -127,9 +130,9 @@
                     <i class="fa fa-home fa-stack-1x text-primary"></i>
                   </span>
                   <h4>
-                    <strong>Zakwaterowanie</strong>
+                    <strong>{% trans "Accommodation" %}</strong>
                   </h4>
-                  <p>Dla przyjezdnych drużyn za dopłatą zapewniamy zakwaterowanie <br/>w akademikach Politechniki Białostockiej i Uniwersytetu <br/>w Białymstoku.</p>
+                  <p>{% trans "For arrival teams for an additional charge an accommodation is provided in Białystok University of Technology, and Białystok University dorms" %}</p>
                 </div>
               </div>
               <div class="col-md-3 col-sm-6">
@@ -139,9 +142,9 @@
                     <i class="fa fa-calendar fa-stack-1x text-primary"></i>
                   </span>
                   <h4>
-                    <strong>Dogodny termin</strong>
+                    <strong>{% trans "Convinient time and place" %}</strong>
                   </h4>
-                  <p>21-22 marca (dzień wagarowicza) to idealny termin, by opuścić zajęcia i zdobyć laur zwycięzcy.</p>
+                  <p>{% trans "21-22 od March (Hooky Day) is the perfect time to run off from classes to Białystok University of Technology Information Technology Faculty building and win yourself a trophy." %}</p>
                 </div>
               </div>
             </div>
@@ -155,8 +158,14 @@
     </section>
 
     <aside id="sponsors" class="callout">
-      <h2 class="text-center">Sponsorzy</h2>
+      <h2 class="text-center">{% trans "Sponsors" %}</h2>
       <hr class="small" />
+      {% get_flatpages '/sponsors/' as sponsors_pages %}
+      {% for page in sponsors_pages %}
+      {{ page.content }}
+      <hr class="small" />
+      {% endfor %}
+      <h3 class="text-center"><a class="btn btn-dark btn-lg" href="#contact"><i class="fa fa-usd"></i> {% trans "Become a sponsor" %}</a></h3>
     </aside>
 
     <!-- News -->
@@ -164,14 +173,9 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-10 col-lg-offset-1">
-            <h2 class="text-center">Aktualności</h2>
+            <h2 class="text-center">{% trans "News" context "Plural" %}</h2>
             <hr class="small">
-            <div class="news">
-              <h3 class="text-inline">Tytuł</h3>
-              <small class="text-inline">12.03.18</small>
-              <p>Treść</p>
-              <hr />
-            </div>
+            {% block content %}{% endblock %}
           </div>
           <!-- /.col-lg-10 -->
         </div>
@@ -189,9 +193,8 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-10 col-lg-offset-1 text-center">
-          <h4><strong>Kontakt</strong>
-          </h4>
-          <p>Wydział Informatyki <br/>Politechniki Białostockiej<br />ul. Wiejska 45A<br />15-351 Białystok</p>
+          <h4><strong>{% trans "Contact" %}</strong></h4>
+          <p>{% trans "Information Technology Faculty<br />Białystok University of Technology<br />Wiejska st. 45A<br />15-351 Białystok" %}</p>
           <ul class="list-unstyled">
             <li><i class="fa fa-envelope-o fa-fw"></i>  <a href="mailto:wi.zawody@pb.edu.pl">wi.zawody@pb.edu.pl</a></li>
             <li><i class="fa fa-envelope-o fa-fw"></i>  <a href="mailto:wi.stos@pb.edu.pl">wi.stos@pb.edu.pl</a></li>
@@ -203,7 +206,7 @@
             </li>
           </ul>
           <hr class="small">
-          <p class="text-muted">&copy; STOS 2015. Wszystkie prawa zastrzeżone. Zdjęcia z X Turnieju w Programowaniu Zespołowym &copy; Paweł Tadejko</p>
+          <p class="text-muted">{% trans "Copyright &copy; STOS 2015. All rights reserved. Photos from the X Podlachia Team Programming Contest &copy; to Paweł Tadejko" %}</p>
         </div>
       </div>
     </div>
