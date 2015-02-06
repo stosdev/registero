@@ -128,4 +128,3 @@ LANGUAGES = (
     ('en', _('English')),
     ('pl', _('Polish')),
 )
-
