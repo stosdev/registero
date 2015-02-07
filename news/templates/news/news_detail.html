@@ -1,7 +1,11 @@
-{% extends "base.html" %}
+{% extends "secondary_base.html" %}
+
 
 {% block content %}
-{{ news.title }}
-{{ news.timestamp }}
-{{ news.content}}
+<div class="news">
+  <h3 class="text-inline">{{ news.title }}</h3>
+  <small class="text-inline">{{ news.timestamp }}</small>
+  <p>{{ news.content | safe }}</p>
+  <hr />
+</div>
 {% endblock %}

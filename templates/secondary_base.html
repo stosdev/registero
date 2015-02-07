@@ -1,0 +1,59 @@
+{% load staticfiles %}
+{% load i18n %}
+
+<!DOCTYPE html>
+<html lang="pl">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{% trans "Podlachia Team Programming Contest 2015" %}</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{% static "css/stylish-portfolio.css" %}" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+  </head>
+
+  <body>
+    <aside class="callout">
+      <div class="text-center text-vertical-center">
+        <h1 class="title">{% blocktrans context "Logo text" %}Podlachia Team Programming Contest{% endblocktrans %}</h1>
+      </div>
+    </aside>
+
+
+    <section class="portfolio">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-10 col-lg-offset-1">
+            {% block content %}{% endblock %}
+          </div>
+          <!-- /.col-lg-10 -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container -->
+    </section>
+
+    <aside class="call-to-action bg-primary"></aside>
+
+    {% include "footer.html" %}
+
+  </body>
+</html>
