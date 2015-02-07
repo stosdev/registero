@@ -114,7 +114,11 @@ REGISTRATION_AUTO_LOGIN = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
-STATIC_ROOT = p('static/')
+STATIC_ROOT = p('static-files/')
+
+STATICFILES_DIRS = (
+    p('static'),
+)
 
 STATIC_URL = '/static/'
 
