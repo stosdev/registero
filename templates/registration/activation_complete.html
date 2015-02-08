@@ -1,0 +1,11 @@
+{% extends "secondary_base.html" %}
+
+{% load bootstrap3 %}
+{% load i18n %}
+
+{% block content %}
+<div class="text-center">
+  <h3>{% trans "Thank you for your registration. You may create your teams by clicking below." %}</h3>
+  <a href="#" class="btn btn-primary btn-lg"><i class="fa fa-users"></i> {% trans "Register teams" %}</a>
+</div>
+{% endblock %}

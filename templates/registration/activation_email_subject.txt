@@ -1,0 +1,3 @@
+{% load i18n %}
+
+{% trans "Podlachia Team Programming Contest registration details" %}

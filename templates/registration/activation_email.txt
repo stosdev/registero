@@ -1,0 +1,10 @@
+{% load i18n %}
+
+{% trans "Thank you for your registration" %}
+
+{% trans "To activate your new account please visit the following URL:" %}
+
+{{ site }}/accounts/activate/{{ activation_key }}/
+
+{% trans "Thank you" %}
+{% trans "The Podlachia Team Programming Contest organizators"

@@ -56,6 +56,7 @@ INSTALLED_APPS = (
     'django.contrib.flatpages',
     'registration',
     'guardian',
+    'bootstrap3',
     'news',
     'contest_registration',
 )
