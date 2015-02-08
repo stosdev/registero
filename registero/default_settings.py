@@ -136,3 +136,11 @@ LANGUAGES = (
     ('en', _('English')),
     ('pl', _('Polish')),
 )
+
+# Email settings
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = '1025'
+EMAIL_HOST_USER = 'test@example.com'
+EMAIL_HOST_PASSWORD = 'password'
+EMAIL_USE_TLS = True
