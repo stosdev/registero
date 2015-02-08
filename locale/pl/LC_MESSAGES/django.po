@@ -106,7 +106,7 @@ msgstr "Drużyny mogą składać się z dwóch do trzech osób."
 
 #: templates/base.html:121
 msgid "Six winning teams"
-msgstr "Sześć zwycięskich drużyn."
+msgstr "Sześć zwycięskich drużyn"
 
 #: templates/base.html:123
 msgid ""

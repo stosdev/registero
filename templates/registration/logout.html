@@ -1,0 +1,12 @@
+{% extends "secondary_base.html" %}
+
+{% load bootstrap3 %}
+{% load i18n %}
+
+{% block content %}
+<div class="text-center">
+  <h3>{% trans "Logged out" %}</h3>
+  <p>{% trans "Thanks for spending some quality time with the Web site today." %}</p>
+  <a href="{% url "auth_login" %}">{% trans "Log in again" %}</a>
+</div>
+{% endblock %}

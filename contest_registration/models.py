@@ -5,6 +5,8 @@ from django.db import models
 
 
 class UserProfile(models.Model):
+    """The team couches profile which has details about the teams origin."""
+
     user = models.OneToOneField(User)
     accepted_requlations = models.BooleanField(
         _("Accepted contest regulations"), default=False)
@@ -14,6 +16,9 @@ class UserProfile(models.Model):
 
 
 class Team(models.Model):
+    """Team model consisting of the importance of this team for the given
+    couch (order), and a foreign key to the couch model."""
+
     order = models.IntegerField(_("Order"))
     couch = models.ForeignKey(User, verbose_name=_("Couch"),
                               related_name='teams')
@@ -27,6 +32,8 @@ class Team(models.Model):
 
 
 class Participant(models.Model):
+    """The participant model, each participant has a name and a
+    shirt size and belongs to a given team."""
 
     EXTRA_SMALL = 'XS'
     SMALL = 'S'

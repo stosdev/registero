@@ -4,8 +4,7 @@
 {% load i18n %}
 
 {% block content %}
-<h2>{% trans "Registration" %}</h2>
-<p>{% trans "Please register a coach account to manage teams and participants." %}</p>
+<h2>{% trans "Log in" %}</h2>
 <form action="." method="post" class="form">
   {% csrf_token %}
   {% bootstrap_form form %}
@@ -13,4 +12,6 @@
   <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> {% trans "Submit" %}</button>
   {% endbuttons %}
 </form>
+<h4>Not a member? <a href="{% url "registration_register" %}">{% trans "Register" %}.</a></h4>
+<a href="{% url "auth_password_reset" %}">{% trans "I forgot my credentials." %}</a>
 {% endblock %}

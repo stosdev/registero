@@ -5,7 +5,7 @@ from models import News
 
 
 class NewsListView(ListView):
-    model = News
+    queryset = News.on_site.all()
 
 
 class NewsDetailView(DetailView):

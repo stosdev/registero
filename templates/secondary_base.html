@@ -31,12 +31,47 @@
   </head>
 
   <body>
-    <aside class="callout">
-      <div class="text-center text-vertical-center">
-        <h1 class="title">{% blocktrans context "Logo text" %}Podlachia Team Programming Contest{% endblocktrans %}</h1>
-      </div>
-    </aside>
+    <!-- Navigation -->
+    <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
+    <nav id="sidebar-wrapper">
+      <ul class="sidebar-nav">
+        <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
+        {% if user.is_authenticated %}
+        <li class="sidebar-brand">
+          {% trans "Welcome" %} {{ user.username }}
+        </li>
+        <li>
+          <a href="register teams">{% trans "Register teams" %}</a>
+        </li>
+        <li>
+          <a href="{% url "auth_password_change" %}">{% trans "Change password" %}</a>
+        </li>
+        <li>
+          <a href="{% url "auth_logout" %}">{% trans "Logout" %}</a>
+        </li>
+        {% else %}
+        <li class="sidebar-brand">
+          {% trans "Welcome" %}
+        </li>
+        <li>
+          <a href="{% url "registration_register" %}">{% trans "Register" %}</a>
+        </li>
+        <li>
+          <a href="{% url "auth_login" %}?next={{ request.path }}">{% trans "Login" %}</a>
+        </li>
+        {% endif %}
+      </ul>
+    </nav>
 
+    <header class="callout">
+      <div class="text-center text-vertical-center">
+        <div>
+          <div class="title">
+            <h1><a href="/">{% blocktrans context "Logo text" %}Podlachia Team Programming Contest{% endblocktrans %}</a></h1>
+          </div>
+        </div>
+      </div>
+    </header>
 
     <section class="portfolio">
       <div class="container">
@@ -54,6 +89,6 @@
     <aside class="call-to-action bg-primary"></aside>
 
     {% include "footer.html" %}
-
+    {% include "scripts.html" %}
   </body>
 </html>
