@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-06 16:39+0100\n"
+"POT-Creation-Date: 2015-02-08 13:19+0100\n"
 "PO-Revision-Date: 2015-02-06 14:31+01\n"
 "Last-Translator: Paweł Jan Czochański <czochanski@gmail.com>\n"
 "Language-Team: pl\n"
@@ -18,15 +18,15 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 
-#: registero/default_settings.py:128 registero/settings.py:129
+#: registero/default_settings.py:132 registero/settings.py:131
 msgid "English"
 msgstr "Angielski"
 
-#: registero/default_settings.py:129 registero/settings.py:130
+#: registero/default_settings.py:133 registero/settings.py:132
 msgid "Polish"
 msgstr "Polski"
 
-#: templates/base.html:14
+#: templates/base.html:14 templates/secondary_base.html:13
 msgid "Podlachia Team Programming Contest 2015"
 msgstr "Podlaski Turniej w Programowaniu Zespołowym 2015"
 
@@ -50,11 +50,11 @@ msgstr "Sponsorzy"
 msgid "News"
 msgstr ""
 
-#: templates/base.html:57 templates/base.html.py:196
+#: templates/base.html:57 templates/footer.html:8
 msgid "Contact"
 msgstr "Kontakt"
 
-#: templates/base.html:67
+#: templates/base.html:67 templates/secondary_base.html:36
 msgctxt "Logo text"
 msgid "Podlachia Team Programming Contest"
 msgstr "Podlaski Turniej<br />w Programowaniu Zespołowym"
@@ -76,15 +76,22 @@ msgid "Podlachia Team Programming Contest"
 msgstr "Podlaski Turniej w Programowaniu Zespołowym"
 
 #: templates/base.html:85
+#, fuzzy
+#| msgid ""
+#| "An annual programming event created by, and organized at the Białystok "
+#| "University of Technology Information Technology Faculty on which "
+#| "(number!!!) two to three person teams compete with each other for the "
+#| "Białystok University of Technology Information Technology Faculty deans "
+#| "cup in two age categories - school, and university levels."
 msgid ""
 "An annual programming event created by, and organized at the Białystok "
-"University of Technology Information Technology Faculty on which (number!!!) "
-"two to three person teams compete with each other for the Białystok "
-"University of Technology Information Technology Faculty deans cup in two age "
-"categories - school, and university levels."
+"University of Technology Information Technology Faculty on which 30 two to "
+"three person teams compete with each other for the Białystok University of "
+"Technology Information Technology Faculty deans cup in two age categories - "
+"school, and university levels."
 msgstr ""
 "Coroczne wydarzenie programistyczne odbywające się na Wydziale Informatyki "
-"Politechniki Białostockiej. (ilee!!!!) dwu- lub trzyosobowych drużyn "
+"Politechniki Białostockiej. Trzydzieści dwu- lub trzyosobowych drużyn "
 "rywalizuje ze sobą o puchar Dziekana Wydziału Informatyki Politechniki "
 "Białostockiej w dwóch kategoriach wiekowych - uczniów szkół średnich i "
 "studentów."
@@ -143,7 +150,7 @@ msgctxt "Plural"
 msgid "News"
 msgstr "Aktualności"
 
-#: templates/base.html:197
+#: templates/footer.html:9
 msgid ""
 "Information Technology Faculty<br />Białystok University of Technology<br /"
 ">Wiejska st. 45A<br />15-351 Białystok"
@@ -151,7 +158,7 @@ msgstr ""
 "Wydział Informatyki <br />Politechniki Białostockiej<br />ul. Wiejska 45A "
 "<br />15-351 Białystok"
 
-#: templates/base.html:209
+#: templates/footer.html:21
 msgid ""
 "Copyright &copy; STOS 2015. All rights reserved. Photos from the X Podlachia "
 "Team Programming Contest &copy; to Paweł Tadejko"
