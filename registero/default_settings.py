@@ -58,7 +58,7 @@ INSTALLED_APPS = (
     'guardian',
     'bootstrap3',
     'news',
-    'contest_registration',
+    'team_registration',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -131,7 +131,7 @@ STATIC_URL = '/static/'
 LOCALE_PATHS = (
     p('locale'),
     p('news/locale'),
-    p('contest_registration/locale'),
+    p('team_registration/locale'),
 )
 
 LANGUAGES = (

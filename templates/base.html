@@ -43,7 +43,7 @@
           {% trans "Welcome" %} {{ user.username }}
         </li>
         <li>
-          <a href="register teams">{% trans "Register teams" %}</a>
+          <a href="{% url "team.views.management" %}">{% trans "Register teams" %}</a>
         </li>
         <li>
           <a href="{% url "auth_password_change" %}">{% trans "Change password" %}</a>
@@ -97,11 +97,7 @@
         </div>
         <br/>
         <ul class="navigation-buttons">
-          {% if user.is_authenticated %}
-          <li><a href="#" class="btn btn-primary btn-lg"><i class="fa fa-users"></i> {% trans "Register teams" %}</a></li>
-          {% else %}
-          <li><a href="{% url "auth_login" %}?next={{ request.path }}" class="btn btn-primary btn-lg"><i class="fa fa-users"></i> {% trans "Register teams" %}</a></li>
-          {% endif %}
+          <li><a href="{% url "team.views.management" %}" class="btn btn-primary btn-lg"><i class="fa fa-users"></i> {% trans "Register teams" %}</a></li>
           <li><a href="#about" class="btn btn-dark btn-lg"><i class="fa fa-info"></i> {% trans "More info" %}</a></li>
         </ul>
       </div>

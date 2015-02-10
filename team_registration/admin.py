@@ -1,7 +1,12 @@
 from django.contrib import admin
 from guardian.admin import GuardedModelAdmin
 
-from models import Team, Participant
+from models import UserProfile, Team, Participant
+
+
+@admin.register(UserProfile)
+class UserProfileAdmin(admin.ModelAdmin):
+    pass
 
 
 @admin.register(Team)

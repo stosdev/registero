@@ -3,5 +3,5 @@ from django.apps import AppConfig
 
 
 class JudgeConfig(AppConfig):
-        name = 'contest_registration'
-        verbose_name = _("Contest registration")
+        name = 'team_registration'
+        verbose_name = _("Team registration")

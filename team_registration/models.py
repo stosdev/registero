@@ -1,5 +1,6 @@
 from django.utils.translation import ugettext as _
 from django.contrib.auth.models import User
+from django.core.urlresolvers import reverse
 
 from django.db import models
 
@@ -8,11 +9,19 @@ class UserProfile(models.Model):
     """The team couches profile which has details about the teams origin."""
 
     user = models.OneToOneField(User)
-    accepted_requlations = models.BooleanField(
-        _("Accepted contest regulations"), default=False)
     institute_name = models.CharField(_("Insititute name"), max_length=255)
     institute_name.help_text = _(
         "The name of the school/university providing this team.")
+
+    class Meta:
+        verbose_name = _("User Profile")
+        verbose_name_plural = _("User Profiles")
+
+    def get_absolute_url(self):
+        return reverse('userprofile.views.create', args=())
+
+    def __unicode__(self):
+        return u'{} {}'.format(self.user, self.institute_name)
 
 
 class Team(models.Model):
@@ -61,4 +70,4 @@ class Participant(models.Model):
         verbose_name_plural = _("Participants")
 
     def __unicode__(self):
-        return u'{} {}'.format(self.firstname, self.lastname)
+        return u'{} {}'.format(self.first_name, self.last_name)

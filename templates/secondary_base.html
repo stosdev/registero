@@ -41,7 +41,7 @@
           {% trans "Welcome" %} {{ user.username }}
         </li>
         <li>
-          <a href="register teams">{% trans "Register teams" %}</a>
+          <a href="{% url "team.views.management" %}">{% trans "Register teams" %}</a>
         </li>
         <li>
           <a href="{% url "auth_password_change" %}">{% trans "Change password" %}</a>

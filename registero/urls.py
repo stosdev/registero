@@ -10,4 +10,5 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^accounts/', include('registration.backends.default.urls')),
     url(r'^', include('news.urls')),
+    url(r'^team/', include('team_registration.urls')),
 ) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
