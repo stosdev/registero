@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-08 13:19+0100\n"
+"POT-Creation-Date: 2015-02-10 09:00+0100\n"
 "PO-Revision-Date: 2015-02-06 14:31+01\n"
 "Last-Translator: Paweł Jan Czochański <czochanski@gmail.com>\n"
 "Language-Team: pl\n"
@@ -18,74 +18,114 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 
-#: contest_registration/apps.py:7
-msgid "Contest registration"
-msgstr "Rejestracja na turniej"
+#: team_registration/apps.py:7
+msgid "Team registration"
+msgstr "Rejestracja drużyn"
 
-#: contest_registration/models.py:10
-msgid "Accepted contest regulations"
-msgstr "Zaakceptował regulamin turnieju"
-
-#: contest_registration/models.py:11
+#: team_registration/models.py:12
 msgid "Insititute name"
 msgstr "Nazwa ośrodka"
 
-#: contest_registration/models.py:13
-msgid "The name of the school/university providing this team."
-msgstr "Nazwa szkoły/uczelni wyższej z której pochodzi dana drużyna."
+#: team_registration/models.py:14
+msgid "The name of the school/university providing teams for this coach."
+msgstr "Nazwa szkoły/uczelni wyższej z której pochodzą drużyny danego trenera."
 
-#: contest_registration/models.py:17
+#: team_registration/models.py:17
+msgid "Coach Profile"
+msgstr "Profil trenera"
+
+#: team_registration/models.py:18
+msgid "Coach Profiles"
+msgstr "Profile trenerów"
+
+#: team_registration/models.py:31
 msgid "Order"
 msgstr "Kolejność"
 
-#: contest_registration/models.py:18
-msgid "Couch"
+#: team_registration/models.py:32
+msgid "Coach"
 msgstr "Trener"
 
-#: contest_registration/models.py:22 contest_registration/models.py:47
+#: team_registration/models.py:36 team_registration/models.py:63
+#: team_registration/templates/team_registration/team_management.html:20
 msgid "Team"
 msgstr "Drużyna"
 
-#: contest_registration/models.py:23
+#: team_registration/models.py:37
+#: team_registration/templates/team_registration/team_management.html:16
 msgid "Teams"
 msgstr "Drużyny"
 
-#: contest_registration/models.py:38
+#: team_registration/models.py:54
 msgid "Extra small"
 msgstr "Bardzo mała (XS)"
 
-#: contest_registration/models.py:39
+#: team_registration/models.py:55
 msgid "Small"
 msgstr "Mała (S)"
 
-#: contest_registration/models.py:40
+#: team_registration/models.py:56
 msgid "Medium"
 msgstr "Średnia (M)"
 
-#: contest_registration/models.py:41
+#: team_registration/models.py:57
 msgid "Large"
 msgstr "Duża (L)"
 
-#: contest_registration/models.py:42
+#: team_registration/models.py:58
 msgid "Extra large"
 msgstr "Bardzo duża (XL)"
 
-#: contest_registration/models.py:45
+#: team_registration/models.py:61
 msgid "First name"
 msgstr "Imię"
 
-#: contest_registration/models.py:46
+#: team_registration/models.py:62
 msgid "Last name"
 msgstr "Nazwisko"
 
-#: contest_registration/models.py:49
+#: team_registration/models.py:65
 msgid "Shirt size"
 msgstr "Wielkość koszulki"
 
-#: contest_registration/models.py:53
+#: team_registration/models.py:69
 msgid "Participant"
 msgstr "Uczestnik"
 
-#: contest_registration/models.py:54
+#: team_registration/models.py:70
 msgid "Participants"
 msgstr "Uczestnicy"
+
+#: team_registration/templates/team_registration/team_management.html:7
+msgid "General information"
+msgstr "Informacje ogólne"
+
+#: team_registration/templates/team_registration/team_management.html:12
+msgid "Save"
+msgstr "Zapisz"
+
+#: team_registration/templates/team_registration/team_management.html:17
+msgid ""
+"The final contest team list will be filled by choosing teams from each "
+"institutes team list. The order in which you provide the teams matters. "
+"After you create your teams please drag-and-drop them into an order based on "
+"their importance."
+msgstr ""
+"Lista drużyn biorących udział w konkursie zostanie przygotowana poprzez "
+"wybór drużyn z list każdego z trenerów według ustalonej przez niego "
+"kolejności. Kolejność drużyn na liście ma znaczenie. Po przygotowaniu drużyn "
+"proszę o przeciągnięcie ich w celu uzyskania kolejności zależnej od "
+"istotności danej drużyny."
+
+#: team_registration/templates/team_registration/team_management.html:25
+msgid "No participants in this team yet."
+msgstr "Brak uczestników w tej drużynie."
+
+#: team_registration/templates/team_registration/team_management.html:30
+msgid "No teams to show, you can add teams using the button below."
+msgstr ""
+"Brak drużyn do wyświetlenia. Dodać je możesz z pomocą poniższego przycisku."
+
+#: team_registration/templates/team_registration/team_management.html:32
+msgid "Add new team"
+msgstr "Dodaj nową drużynę"

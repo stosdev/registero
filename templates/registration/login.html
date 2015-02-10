@@ -12,6 +12,6 @@
   <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> {% trans "Submit" %}</button>
   {% endbuttons %}
 </form>
-<h4>Not a member? <a href="{% url "registration_register" %}">{% trans "Register" %}.</a></h4>
+<h4>{% trans "Not a member?" %} <a href="{% url "registration_register" %}">{% trans "Register" %}.</a></h4>
 <a href="{% url "auth_password_reset" %}">{% trans "I forgot my credentials." %}</a>
 {% endblock %}

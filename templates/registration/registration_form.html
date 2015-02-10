@@ -2,10 +2,11 @@
 
 {% load bootstrap3 %}
 {% load i18n %}
+{% load staticfiles %}
 
 {% block content %}
-<h2>{% trans "Registration" %}</h2>
-<p>{% trans "Please register a coach account to manage teams and participants." %}</p>
+  <h2>{% trans "Registration" %}</h2>
+  <p>{% blocktrans %}Please register a coach account to manage teams and participants. Registering an account means that you accept the contests{% endblocktrans %} <a href="{% static "files/regulations.pdf" %}">{% trans "regulations" %}</a>.</p>
 <form action="." method="post" class="form">
   {% csrf_token %}
   {% bootstrap_form form %}

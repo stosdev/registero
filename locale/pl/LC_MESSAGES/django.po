@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-08 13:19+0100\n"
+"POT-Creation-Date: 2015-02-10 09:00+0100\n"
 "PO-Revision-Date: 2015-02-06 14:31+01\n"
 "Last-Translator: Paweł Jan Czochański <czochanski@gmail.com>\n"
 "Language-Team: pl\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 
-#: registero/default_settings.py:132 registero/settings.py:131
+#: registero/default_settings.py:138 registero/settings.py:138
 msgid "English"
 msgstr "Angielski"
 
-#: registero/default_settings.py:133 registero/settings.py:132
+#: registero/default_settings.py:139 registero/settings.py:139
 msgid "Polish"
 msgstr "Polski"
 
@@ -30,59 +30,82 @@ msgstr "Polski"
 msgid "Podlachia Team Programming Contest 2015"
 msgstr "Podlaski Turniej w Programowaniu Zespołowym 2015"
 
-#: templates/base.html:42
+#: templates/base.html:43 templates/base.html.py:56
+#: templates/secondary_base.html:41 templates/secondary_base.html.py:54
+msgid "Welcome"
+msgstr "Witamy"
+
+#: templates/base.html:46 templates/base.html.py:100
+#: templates/registration/activation_complete.html:9
+#: templates/secondary_base.html:44
+msgid "Register teams"
+msgstr "Zarejestruj drużyny"
+
+#: templates/base.html:49 templates/secondary_base.html:47
+msgid "Change password"
+msgstr "Zmień hasło"
+
+#: templates/base.html:52 templates/secondary_base.html:50
+msgid "Log out"
+msgstr "Wyloguj"
+
+#: templates/base.html:59 templates/registration/login.html:15
+#: templates/secondary_base.html:57
+msgid "Register"
+msgstr "Zarejestruj"
+
+#: templates/base.html:62 templates/registration/login.html:7
+#: templates/registration/password_reset_complete.html:9
+#: templates/secondary_base.html:60
+msgid "Log in"
+msgstr "Zaloguj się"
+
+#: templates/base.html:66
+msgid "Navigation"
+msgstr "Nawigacja"
+
+#: templates/base.html:69
 msgid "Home"
 msgstr "Do góry"
 
-#: templates/base.html:45
+#: templates/base.html:72
 msgid "About"
 msgstr "O turnieju"
 
-#: templates/base.html:48 templates/base.html.py:99
+#: templates/base.html:75 templates/base.html.py:126
 msgid "Details"
 msgstr "Cechy turnieju"
 
-#: templates/base.html:51 templates/base.html.py:161
+#: templates/base.html:78 templates/base.html.py:188
 msgid "Sponsors"
 msgstr "Sponsorzy"
 
-#: templates/base.html:54
+#: templates/base.html:81
 msgid "News"
-msgstr ""
+msgstr "Aktualności"
 
-#: templates/base.html:57 templates/footer.html:8
+#: templates/base.html:84 templates/footer.html:8
 msgid "Contact"
 msgstr "Kontakt"
 
-#: templates/base.html:67 templates/secondary_base.html:36
+#: templates/base.html:94 templates/secondary_base.html:70
 msgctxt "Logo text"
 msgid "Podlachia Team Programming Contest"
 msgstr "Podlaski Turniej<br />w Programowaniu Zespołowym"
 
-#: templates/base.html:68
+#: templates/base.html:95
 msgid "Register a team and take part!"
 msgstr "Zarejestruj drużynę i weź udział!"
 
-#: templates/base.html:73
-msgid "Register teams"
-msgstr "Zarejestruj drużyny"
-
-#: templates/base.html:74
+#: templates/base.html:101
 msgid "More info"
 msgstr "Więcej informacji"
 
-#: templates/base.html:84
+#: templates/base.html:111
 msgid "Podlachia Team Programming Contest"
 msgstr "Podlaski Turniej w Programowaniu Zespołowym"
 
-#: templates/base.html:85
-#, fuzzy
-#| msgid ""
-#| "An annual programming event created by, and organized at the Białystok "
-#| "University of Technology Information Technology Faculty on which "
-#| "(number!!!) two to three person teams compete with each other for the "
-#| "Białystok University of Technology Information Technology Faculty deans "
-#| "cup in two age categories - school, and university levels."
+#: templates/base.html:112
 msgid ""
 "An annual programming event created by, and organized at the Białystok "
 "University of Technology Information Technology Faculty on which 30 two to "
@@ -96,19 +119,19 @@ msgstr ""
 "Białostockiej w dwóch kategoriach wiekowych - uczniów szkół średnich i "
 "studentów."
 
-#: templates/base.html:109
+#: templates/base.html:136
 msgid "Teams"
 msgstr "Drużyny"
 
-#: templates/base.html:111
+#: templates/base.html:138
 msgid "Teams can consist of from two to three."
 msgstr "Drużyny mogą składać się z dwóch do trzech osób."
 
-#: templates/base.html:121
+#: templates/base.html:148
 msgid "Six winning teams"
 msgstr "Sześć zwycięskich drużyn"
 
-#: templates/base.html:123
+#: templates/base.html:150
 msgid ""
 "Three winning places in two age categories - school level and university "
 "level."
@@ -116,11 +139,11 @@ msgstr ""
 "Po trzy miejsca w dwóch kategoriach wiekowych - uczniowiowskiej i "
 "studenckiej."
 
-#: templates/base.html:133
+#: templates/base.html:160
 msgid "Accommodation"
 msgstr "Zakwaterowanie"
 
-#: templates/base.html:135
+#: templates/base.html:162
 msgid ""
 "For arrival teams for an additional charge an accommodation is provided in "
 "Białystok University of Technology, and Białystok University dorms"
@@ -128,11 +151,11 @@ msgstr ""
 "Dla przyjezdnych drużyn za dopłatą zapewniamy zakwaterowanie <br />w "
 "akademikach Politechniki Białostockiej i Uniwersytetu <br />w Białymstoku."
 
-#: templates/base.html:145
+#: templates/base.html:172
 msgid "Convinient time and place"
 msgstr "Dogodne miejsce i termin"
 
-#: templates/base.html:147
+#: templates/base.html:174
 msgid ""
 "21-22 od March (Hooky Day) is the perfect time to run off from classes to "
 "Białystok University of Technology Information Technology Faculty building "
@@ -141,11 +164,11 @@ msgstr ""
 "21-22 marca (dzień wagarowicza) to idealny termin, by opuścić zajęcia ruszyć "
 "na Wydział Informatyki Politechniki Białostockiej i zdobyć laur zwycięzcy."
 
-#: templates/base.html:168
+#: templates/base.html:195
 msgid "Become a sponsor"
 msgstr "Zostań sponsorem"
 
-#: templates/base.html:176
+#: templates/base.html:203
 msgctxt "Plural"
 msgid "News"
 msgstr "Aktualności"
@@ -165,3 +188,133 @@ msgid ""
 msgstr ""
 "&copy; STOS 2015. Wszystkie prawa zastrzeżone. Zdjęcia z X Podlaskiego "
 "Turnieju w Programowaniu Zespołowym &copy; Paweł Tadejko"
+
+#: templates/registration/activate.html:7
+msgid ""
+"The registration key seems to be inactive or invalid. Your account "
+"activation may have timed out. Try creating a new account or contact us "
+"using the information provided below."
+msgstr ""
+"Klucz rejestracyjny wydaję się być nieaktywny lub niewłaściwy. Czas na "
+"aktywację twojego konta mógł wyczerpać się. Spróbuj stworzyć nowe konto lub "
+"skontaktuj się z nami z pomocą informacji zamieszczonych poniżej."
+
+#: templates/registration/activation_complete.html:8
+msgid ""
+"Thank you for your registration. You may create your teams by clicking below."
+msgstr "Dziękujemy za rejestrację. Możesz tworzyć drużyny klikająć poniżej."
+
+#: templates/registration/activation_email.txt:3
+msgid "Thank you for your registration"
+msgstr "Dziękujemy za rejestrację"
+
+#: templates/registration/activation_email.txt:5
+msgid "To activate your new account please visit the following URL:"
+msgstr "W celu aktywowania konta odwiedź poniższy adres:"
+
+#: templates/registration/activation_email.txt:9
+msgid "Thank you"
+msgstr "Dziękujemy"
+
+#: templates/registration/activation_email.txt:10
+msgid "The Podlachia Team Programming Contest organizers"
+msgstr "Podlaski Turniej w Programowaniu Zespołowym"
+
+#: templates/registration/activation_email_subject.txt:3
+msgid "Podlachia Team Programming Contest registration details"
+msgstr "Podlaski Turniej w Programowaniu Zespołowym szczegóły rejestracyjne"
+
+#: templates/registration/login.html:12
+#: templates/registration/password_change_form.html:13
+#: templates/registration/password_reset_form.html:12
+#: templates/registration/registration_form.html:14
+msgid "Submit"
+msgstr "Wyślij"
+
+#: templates/registration/login.html:15
+msgid "Not a member?"
+msgstr "Nie masz konta?"
+
+#: templates/registration/login.html:16
+msgid "I forgot my credentials."
+msgstr "Zapomniałem moich danych logowania."
+
+#: templates/registration/logout.html:8
+msgid "Logged out"
+msgstr "Wylogowany"
+
+#: templates/registration/logout.html:9
+msgid "Thanks for spending some quality time with the Web site today."
+msgstr "Dzięki za spędzenie czasu na naszej stronie."
+
+#: templates/registration/logout.html:10
+msgid "Log in again"
+msgstr "Zaloguj ponownie"
+
+#: templates/registration/password_change_done.html:8
+#: templates/registration/password_change_form.html:7
+msgid "Password change"
+msgstr "Zmniana hasła"
+
+#: templates/registration/password_change_done.html:9
+msgid "Your password was changed."
+msgstr "Twoje hasło zostało zmienione."
+
+#: templates/registration/password_change_form.html:8
+msgid ""
+"Please enter your old password, for security's sake, and then enter your new "
+"password twice so we can verify you typed it in correctly."
+msgstr ""
+"Dla bezpieczeństwa proszę wprowadzić stare hasło, a następnie dwukrotnie "
+"nowe w celu jego zmiany."
+
+#: templates/registration/password_reset_complete.html:8
+msgid "Your password has been set. You may go ahead and log in now."
+msgstr "Twoje hasło zostało ustawione. Możesz się już logować."
+
+#: templates/registration/password_reset_done.html:8
+msgid ""
+"We've emailed you instructions for setting your password, if an account "
+"exists with the email you entered. You should receive them shortly."
+msgstr ""
+"Wysłaliśmy ci wiadomość email z instrukcjami w celu ustawienia hasła. Jeżeli "
+"istnieje konto o podanym przez ciebie adresie email, instrukcje te powinny "
+"się na nim pojawić wkrótce."
+
+#: templates/registration/password_reset_done.html:9
+msgid ""
+"If you don't receive an email, please make sure you've entered the address "
+"you registered with, and check your spam folder."
+msgstr ""
+"Jeżeli nie otrzymasz wiadomości email proszę upewnij się, że wprowadzony "
+"przez ciebie adres zgadza się z użytym podczas rejestracji i czy wiadomość "
+"nie trafiła do folderu spam."
+
+#: templates/registration/password_reset_form.html:7
+msgid "Password reset"
+msgstr "Resetowanie hasła"
+
+#: templates/registration/registration_complete.html:8
+msgid ""
+"Thank you for your registration. An email containing further steps required "
+"to complete the registration process has been sent to your email address."
+msgstr ""
+"Dziękujemy za zarejestrowanie się. Wiadomość email zawierająca kolejne kroki "
+"konieczne do podjęcia w celu ukończenia procesu rejestracji została wysłana "
+"na podany przez ciebie adres email."
+
+#: templates/registration/registration_form.html:8
+msgid "Registration"
+msgstr "Rejestracja"
+
+#: templates/registration/registration_form.html:9
+msgid ""
+"Please register a coach account to manage teams and participants. "
+"Registering an account means that you accept the contests"
+msgstr ""
+"Proszę zarejestrować konto trenera w celu zarządzania drużynami i ich "
+"uczestnikami. Rejestracja konta jest równoznaczna z akceptacją"
+
+#: templates/registration/registration_form.html:9
+msgid "regulations"
+msgstr "regulaminu"
