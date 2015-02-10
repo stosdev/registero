@@ -8,10 +8,23 @@ from django.db import models
 class CoachProfile(models.Model):
     """The team coaches profile which has details about the teams origin."""
 
-    user = models.OneToOneField(User)
+    user = models.OneToOneField(User, related_name='coach_profile')
     institute_name = models.CharField(_("Insititute name"), max_length=255)
     institute_name.help_text = _(
         "The name of the school/university providing teams for this coach.")
+    accomodation_required = models.BooleanField(_("Accomodation required"),
+                                                default=False)
+    accomodation_required.help_text = _(
+        "Check if teams require finding a place to sleep.")
+    institute_address = models.TextField(_("Institute address"),
+                                         blank=True, null=True)
+    institute_address.help_text = _(
+        "The address of the institute provided above.")
+    institute_nip = models.CharField(_("Institutes NIP"), max_length=10,
+                                     blank=True, null=True)
+    institute_nip.help_text = _("The institutes NIP number.")
+    comment = models.TextField(_("Comment"), blank=True, null=True)
+    comment.help_text = _("Share any additional comments on your teams.")
 
     class Meta:
         verbose_name = _("Coach Profile")

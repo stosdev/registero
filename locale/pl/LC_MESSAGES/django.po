@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-10 09:00+0100\n"
+"POT-Creation-Date: 2015-02-10 16:52+0100\n"
 "PO-Revision-Date: 2015-02-06 14:31+01\n"
 "Last-Translator: Paweł Jan Czochański <czochanski@gmail.com>\n"
 "Language-Team: pl\n"
@@ -227,7 +227,7 @@ msgstr "Podlaski Turniej w Programowaniu Zespołowym szczegóły rejestracyjne"
 #: templates/registration/login.html:12
 #: templates/registration/password_change_form.html:13
 #: templates/registration/password_reset_form.html:12
-#: templates/registration/registration_form.html:14
+#: templates/registration/registration_form.html:15
 msgid "Submit"
 msgstr "Wyślij"
 
@@ -307,14 +307,13 @@ msgstr ""
 msgid "Registration"
 msgstr "Rejestracja"
 
-#: templates/registration/registration_form.html:9
+#: templates/registration/registration_form.html:10
+#, python-format
 msgid ""
 "Please register a coach account to manage teams and participants. "
-"Registering an account means that you accept the contests"
+"Registering an account means that you accept the contests <a href="
+"\"%(regulations_url)s\">regulations</a>."
 msgstr ""
 "Proszę zarejestrować konto trenera w celu zarządzania drużynami i ich "
-"uczestnikami. Rejestracja konta jest równoznaczna z akceptacją"
-
-#: templates/registration/registration_form.html:9
-msgid "regulations"
-msgstr "regulaminu"
+"uczestnikami. Rejestracja konta jest równoznaczna z akceptacją <a href="
+"\"%(regulations_url)s\">regulaminu</a>."

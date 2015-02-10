@@ -47,17 +47,33 @@ class TeamManagementView(FormView):
     def get_initial(self, *args, **kwargs):
         initial = super(TeamManagementView, self).get_initial(*args, **kwargs)
         try:
-            coachprofile = self.request.user.coachprofile
-            initial.update({'institute_name': coachprofile.institute_name, })
+            coach_profile = self.request.user.coach_profile
+            initial.update({
+                'institute_name': coach_profile.institute_name,
+                'institute_address': coach_profile.institute_address,
+                'accomodation_required': coach_profile.accomodation_required,
+                'institute_nip': coach_profile.institute_nip,
+                'comment': coach_profile.comment,
+            })
         except ObjectDoesNotExist:
             pass
+        return initial
 
     def form_valid(self, form):
         user = self.request.user
-        coachprofile = form.save(commit=False)
+        res = form.save(commit=False)
         try:
-            user.coachprofile.institute_name = coachprofile.institute_name
+            user.coach_profile.institute_name = res.institute_name
+            user.coach_profile.comment = res.comment
+            user.coach_profile.accomodation_required = \
+                res.accomodation_required
+            if res.accomodation_required:
+                user.coach_profile.institute_address = res.institute_address
+                user.coach_profile.institute_nip = res.institute_nip
+            else:
+                user.coach_profile.institute_address = ''
+                user.coach_profile.institute_nip = ''
         except ObjectDoesNotExist:
-            user.coachprofile = coachprofile
-        user.coachprofile.save()
+            user.coach_profile = res
+        user.coach_profile.save()
         return super(TeamManagementView, self).form_valid(form)

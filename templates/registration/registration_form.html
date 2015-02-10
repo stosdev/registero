@@ -5,8 +5,9 @@
 {% load staticfiles %}
 
 {% block content %}
-  <h2>{% trans "Registration" %}</h2>
-  <p>{% blocktrans %}Please register a coach account to manage teams and participants. Registering an account means that you accept the contests{% endblocktrans %} <a href="{% static "files/regulations.pdf" %}">{% trans "regulations" %}</a>.</p>
+<h2>{% trans "Registration" %}</h2>
+{% static "files/regulations.pdf" as regulations_url %}
+<p>{% blocktrans %}Please register a coach account to manage teams and participants. Registering an account means that you accept the contests <a href="{{ regulations_url }}">regulations</a>.{% endblocktrans %}</p>
 <form action="." method="post" class="form">
   {% csrf_token %}
   {% bootstrap_form form %}

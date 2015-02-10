@@ -31,3 +31,19 @@
 {% endfor %}
 <a href="{% url "team.views.create" %}" class="btn btn-primary btn-block"><i class="fa fa-plus"></i> {% trans "Add new team" %}</a>
 {% endblock %}
+
+{% block scripts %}
+<script>
+  $(document).ready(function(){
+    var checked = $('#id_accomodation_required').is(':checked');
+    if (!checked) {
+      $('#id_institute_address').parent().hide();
+      $('#id_institute_nip').parent().hide();
+    }
+    $('#id_accomodation_required').change(function(){
+      $('#id_institute_address').parent().toggle();
+      $('#id_institute_nip').parent().toggle();
+    });
+  });
+</script>
+{% endblock %}
