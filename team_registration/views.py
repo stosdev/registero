@@ -1,13 +1,12 @@
-from django.http import HttpResponseRedirect
-from django.views.generic.edit import CreateView
-from django.views.generic import TemplateView
+from django.views.generic.edit import FormView
 from django.views.generic.base import RedirectView
 from django.core.exceptions import ObjectDoesNotExist
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
+from django.core.urlresolvers import reverse_lazy
 
-from models import UserProfile, Team
-from forms import UserProfileModelForm, ParticipantModelForm
+from models import Team
+from forms import CoachProfileModelForm
 
 
 class TeamCreateView(RedirectView):
@@ -18,7 +17,6 @@ class TeamCreateView(RedirectView):
     def dispatch(self, *args, **kwargs):
         return super(TeamCreateView, self).dispatch(*args, **kwargs)
 
-
     def get(self, *args, **kwargs):
         user = self.request.user
         teams = user.teams.order_by('-order')
@@ -26,13 +24,15 @@ class TeamCreateView(RedirectView):
             order = teams[0].order + 1
         else:
             order = 1
-        team = Team(couch=user, order=order)
+        team = Team(coach=user, order=order)
         team.save()
         return super(TeamCreateView, self).get(*args, **kwargs)
 
 
-class TeamManagementView(TemplateView):
+class TeamManagementView(FormView):
     template_name = 'team_registration/team_management.html'
+    form_class = CoachProfileModelForm
+    success_url = reverse_lazy('team.views.management')
 
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
@@ -41,30 +41,23 @@ class TeamManagementView(TemplateView):
     def get_context_data(self, *args, **kwargs):
         context = super(TeamManagementView,
                         self).get_context_data(*args, **kwargs)
-
-        user = self.request.user
-        try:
-            context['userprofile_form'] = UserProfileModelForm(
-                instance=user.userprofile
-            )
-        except ObjectDoesNotExist:
-            context['userprofile_form'] = UserProfileModelForm()
-
         context['team_list'] = self.request.user.teams.all()
         return context
 
-    def post(self, request, *args, **kwargs):
-        form = UserProfileModelForm(self.request.POST)
-        user = self.request.user
+    def get_initial(self, *args, **kwargs):
+        initial = super(TeamManagementView, self).get_initial(*args, **kwargs)
+        try:
+            coachprofile = self.request.user.coachprofile
+            initial.update({'institute_name': coachprofile.institute_name, })
+        except ObjectDoesNotExist:
+            pass
 
-        if form.is_valid():
-            userprofile = form.save(commit=False)
-            try:
-                user.userprofile.institute_name = userprofile.institute_name
-                user.userprofile.save()
-            except ObjectDoesNotExist:
-               userprofile.user = user
-               userprofile.save()
-            return HttpResponseRedirect('.')
-        else:
-            return self.render_to_response({'userprofile_form': form})
+    def form_valid(self, form):
+        user = self.request.user
+        coachprofile = form.save(commit=False)
+        try:
+            user.coachprofile.institute_name = coachprofile.institute_name
+        except ObjectDoesNotExist:
+            user.coachprofile = coachprofile
+        user.coachprofile.save()
+        return super(TeamManagementView, self).form_valid(form)

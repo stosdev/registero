@@ -7,7 +7,7 @@
 <h2 class="text-center">{% trans "General information" %}</h2>
 <form action="." method="post" class="form">
   {% csrf_token %}
-  {% bootstrap_form userprofile_form %}
+  {% bootstrap_form form %}
   {% buttons %}
   <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> {% trans "Save" %}</button>
   {% endbuttons %}

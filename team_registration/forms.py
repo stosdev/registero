@@ -1,12 +1,12 @@
 from django.forms import ModelForm
 
-from models import Participant, UserProfile
+from models import Participant, CoachProfile
 
 
-class UserProfileModelForm(ModelForm):
+class CoachProfileModelForm(ModelForm):
 
     class Meta:
-        model = UserProfile
+        model = CoachProfile
         fields = ('institute_name', )
 
 

@@ -5,20 +5,20 @@ from django.core.urlresolvers import reverse
 from django.db import models
 
 
-class UserProfile(models.Model):
-    """The team couches profile which has details about the teams origin."""
+class CoachProfile(models.Model):
+    """The team coaches profile which has details about the teams origin."""
 
     user = models.OneToOneField(User)
     institute_name = models.CharField(_("Insititute name"), max_length=255)
     institute_name.help_text = _(
-        "The name of the school/university providing this team.")
+        "The name of the school/university providing teams for this coach.")
 
     class Meta:
-        verbose_name = _("User Profile")
-        verbose_name_plural = _("User Profiles")
+        verbose_name = _("Coach Profile")
+        verbose_name_plural = _("Coach Profiles")
 
     def get_absolute_url(self):
-        return reverse('userprofile.views.create', args=())
+        return reverse('team.views.management', args=())
 
     def __unicode__(self):
         return u'{} {}'.format(self.user, self.institute_name)
@@ -26,10 +26,10 @@ class UserProfile(models.Model):
 
 class Team(models.Model):
     """Team model consisting of the importance of this team for the given
-    couch (order), and a foreign key to the couch model."""
+    coach (order), and a foreign key to the coach model."""
 
     order = models.IntegerField(_("Order"))
-    couch = models.ForeignKey(User, verbose_name=_("Couch"),
+    coach = models.ForeignKey(User, verbose_name=_("Coach"),
                               related_name='teams')
 
     class Meta:
@@ -37,7 +37,7 @@ class Team(models.Model):
         verbose_name_plural = _("Teams")
 
     def __unicode__(self):
-        return u'Team {} for {}'.format(self.order, self.couch)
+        return u'Team {} for {}'.format(self.order, self.coach)
 
 
 class Participant(models.Model):
