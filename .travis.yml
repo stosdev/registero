@@ -8,9 +8,9 @@ install:
 before_script:
   - cp registero/default_settings.py registero/settings.py
 script:
-  - pep8 news contest_registration registero/  --exclude=migrations,default_settings.py --ignore=E128
+  - pep8 news team_registration registero/  --exclude=migrations,default_settings.py --ignore=E128
   - python manage.py makemigrations
   - python manage.py syncdb
-  - coverage run --source=news,contest_registration ./manage.py test
+  - coverage run --source=news,team_registration ./manage.py test
 after_success:
   coveralls
