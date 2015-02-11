@@ -1,12 +1,75 @@
-from django.views.generic.edit import FormView
+from django.views.generic.edit import FormView, CreateView, DeleteView, \
+    UpdateView
 from django.views.generic.base import RedirectView
-from django.core.exceptions import ObjectDoesNotExist
+from django.core.exceptions import ObjectDoesNotExist, PermissionDenied
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse_lazy
+from django.shortcuts import get_object_or_404
 
-from models import Team
-from forms import CoachProfileModelForm
+from models import Team, Participant
+from forms import CoachProfileModelForm, ParticipantModelForm
+
+
+class ParticipantCreateView(CreateView):
+    form_class = ParticipantModelForm
+    template_name = 'team_registration/participant_form.html'
+    success_url = reverse_lazy('team.views.management')
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(ParticipantCreateView, self).dispatch(*args, **kwargs)
+
+    def get_form_kwargs(self):
+        kwargs = super(ParticipantCreateView, self).get_form_kwargs()
+        kwargs.update({'team_pk': self.kwargs.get('team_pk')})
+        return kwargs
+
+    def form_valid(self, form):
+        team = get_object_or_404(Team, pk=self.kwargs.get('team_pk'))
+
+        if team.coach != self.request.user:
+            raise PermissionDenied()
+
+        form.instance.team = team
+
+        return super(ParticipantCreateView, self).form_valid(form)
+
+
+class ParticipantDeleteView(DeleteView):
+    model = Participant
+    success_url = reverse_lazy('team.views.management')
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(ParticipantDeleteView, self).dispatch(*args, **kwargs)
+
+    def get_object(self):
+        participant = super(ParticipantDeleteView, self).get_object()
+
+        if participant.team.coach != self.request.user:
+            raise PermissionDenied()
+
+        return participant
+
+
+class ParticipantUpdateView(UpdateView):
+    model = Participant
+    template_name = 'team_registration/participant_update_form.html'
+    fields = ('first_name', 'last_name', 'shirt_size')
+    success_url = reverse_lazy('team.views.management')
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(ParticipantUpdateView, self).dispatch(*args, **kwargs)
+
+    def get_object(self):
+        participant = super(ParticipantUpdateView, self).get_object()
+
+        if participant.team.coach != self.request.user:
+            raise PermissionDenied()
+
+        return participant
 
 
 class TeamCreateView(RedirectView):
@@ -77,3 +140,20 @@ class TeamManagementView(FormView):
             user.coach_profile = res
         user.coach_profile.save()
         return super(TeamManagementView, self).form_valid(form)
+
+
+class TeamDeleteView(DeleteView):
+    model = Team
+    success_url = reverse_lazy('team.views.management')
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(TeamDeleteView, self).dispatch(*args, **kwargs)
+
+    def get_object(self):
+        team = super(TeamDeleteView, self).get_object()
+
+        if team.coach != self.request.user:
+            raise PermissionDenied()
+
+        return team

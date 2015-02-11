@@ -1,0 +1,16 @@
+{% extends "secondary_base.html" %}
+
+{% load bootstrap3 %}
+{% load i18n %}
+{% load staticfiles %}
+
+{% block content %}
+<h2>{% trans "Add new participant" %}</h2>
+<form action="." method="post" class="form">
+  {% csrf_token %}
+  {% bootstrap_form form %}
+  {% buttons %}
+  <button type="submit" class="btn btn-primary"><i class="fa fa-user"></i> {% trans "Add" %}</button>
+  {% endbuttons %}
+</form>
+{% endblock %}

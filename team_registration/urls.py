@@ -1,6 +1,6 @@
-from django.conf.urls import patterns, include, url
-from django.contrib import admin
-from views import TeamManagementView, TeamCreateView
+from django.conf.urls import patterns, url
+from views import TeamManagementView, TeamCreateView, TeamDeleteView, \
+    ParticipantCreateView, ParticipantDeleteView, ParticipantUpdateView
 
 
 urlpatterns = patterns('',
@@ -8,5 +8,15 @@ urlpatterns = patterns('',
         name='team.views.management'),
     url(r'^new/$', TeamCreateView.as_view(),
         name='team.views.create'),
+    url(r'^(?P<pk>\d+)/delete/$', TeamDeleteView.as_view(),
+        name='team.views.delete'),
+
+    url(r'^(?P<team_pk>\d+)/participant/new/$',
+        ParticipantCreateView.as_view(), name='participant.views.create'),
+    url(r'^(?P<team_pk>\d+)/participant/(?P<pk>\d+)/delete/$',
+        ParticipantDeleteView.as_view(), name='participant.views.delete'),
+    url(r'^(?P<team_pk>\d+)/participant/(?P<pk>\d+)/edit/$',
+        ParticipantUpdateView.as_view(), name='participant.views.edit'),
+
 
 )

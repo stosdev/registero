@@ -8,7 +8,6 @@ from guardian.admin import GuardedModelAdmin
 from models import CoachProfile, Team, Participant
 
 import csv
-from django.db.models import Count
 
 
 def export_teams(modeladmin, request, queryset):
@@ -66,7 +65,7 @@ def export_institutes(modeladmin, request, queryset):
         writer.writerow([
             smart_str(profile.institute_name),
             smart_str(profile.user.teams.count()),
-            smart_str(profile.participants_number),
+            smart_str(profile.participant_count),
             smart_str(accomodation_required),
             smart_str(profile.institute_address),
             smart_str(profile.institute_nip),
@@ -90,6 +89,7 @@ class CoachProfileAdmin(admin.ModelAdmin):
     list_display = ('user', 'institute_name', 'accomodation_required')
     actions = [export_institutes, ]
 
+
 class ParticipantInline(admin.TabularInline):
     model = Participant
     extra = 3
@@ -97,7 +97,7 @@ class ParticipantInline(admin.TabularInline):
 
 @admin.register(Team)
 class TeamAdmin(GuardedModelAdmin):
-    list_display = ('coach', 'order', 'participants_number')
+    list_display = ('coach', 'order', 'participant_count')
     search_fields = ('participants__first_name',
                      'participants__last_name')
     inlines = [ParticipantInline, ]

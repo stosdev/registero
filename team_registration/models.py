@@ -22,7 +22,8 @@ class CoachProfile(models.Model):
         "The address of the institute provided above.")
     institute_nip = models.CharField(_("Institutes NIP"), max_length=10,
                                      blank=True, null=True)
-    institute_nip.help_text = _("The institutes NIP number.")
+    institute_nip.help_text = _(
+        "The institutes NIP number used for the accomodation invoice.")
     comment = models.TextField(_("Comment"), blank=True, null=True)
     comment.help_text = _("Share any additional comments on your teams.")
 
@@ -30,11 +31,11 @@ class CoachProfile(models.Model):
         verbose_name = _("Coach Profile")
         verbose_name_plural = _("Coach Profiles")
 
-    def _participants_number(self):
+    def _participant_count(self):
         q = self.user.teams.aggregate(count=models.Count('participants'))
         return q['count']
-    _participants_number.short_description = _("Number of participants")
-    participants_number = property(_participants_number)
+    _participant_count.short_description = _("Number of participants")
+    participant_count = property(_participant_count)
 
     def get_absolute_url(self):
         return reverse('team.views.management', args=())
@@ -55,11 +56,10 @@ class Team(models.Model):
         verbose_name = _("Team")
         verbose_name_plural = _("Teams")
 
-    def _participants_number(self):
+    def _participant_count(self):
         return self.participants.count()
-    _participants_number.short_description = _("Number of participants")
-    participants_number = property(_participants_number)
-
+    _participant_count.short_description = _("Number of participants")
+    participant_count = property(_participant_count)
 
     def __unicode__(self):
         return u'Team {} for {}'.format(self.order, self.coach)
@@ -93,6 +93,9 @@ class Participant(models.Model):
     class Meta:
         verbose_name = _("Participant")
         verbose_name_plural = _("Participants")
+
+    def get_absolute_url(self):
+        return reverse('team.views.management', args=())
 
     def __unicode__(self):
         return u'{} {}'.format(self.first_name, self.last_name)

@@ -1,0 +1,16 @@
+{% extends "secondary_base.html" %}
+
+{% load bootstrap3 %}
+{% load i18n %}
+{% load staticfiles %}
+
+{% block content %}
+<h2>{% trans "Delete team" %} {{ object.order }}</h2>
+<p>{% trans "Are you sure you want to delete this team?" %}</p>
+<form action="." method="post" class="form">
+  {% csrf_token %}
+  {% buttons %}
+  <button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> {% trans "Confirm" %}</button>
+  {% endbuttons %}
+</form>
+{% endblock %}
