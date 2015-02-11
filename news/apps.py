@@ -1,7 +1,7 @@
-from django.utils.translation import pgettext
+from django.utils.translation import pgettext_lazy
 from django.apps import AppConfig
 
 
-class JudgeConfig(AppConfig):
+class NewsConfig(AppConfig):
         name = 'news'
-        verbose_name = pgettext("Plural", "News")
+        verbose_name = pgettext_lazy("Plural", "News")

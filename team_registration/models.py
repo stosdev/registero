@@ -9,7 +9,7 @@ class CoachProfile(models.Model):
     """The team coaches profile which has details about the teams origin."""
 
     user = models.OneToOneField(User, related_name='coach_profile')
-    institute_name = models.CharField(_("Insititute name"), max_length=255)
+    institute_name = models.CharField(_("Institute name"), max_length=255)
     institute_name.help_text = _(
         "The name of the school/university providing teams for this coach.")
     accomodation_required = models.BooleanField(_("Accomodation required"),
@@ -48,6 +48,12 @@ class Team(models.Model):
     class Meta:
         verbose_name = _("Team")
         verbose_name_plural = _("Teams")
+
+    def _participants_number(self):
+        return self.participants.count()
+    _participants_number.short_description = _("Number of participants")
+    participants_number = property(_participants_number)
+
 
     def __unicode__(self):
         return u'Team {} for {}'.format(self.order, self.coach)

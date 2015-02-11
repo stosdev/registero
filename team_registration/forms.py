@@ -17,6 +17,7 @@ class CoachProfileModelForm(ModelForm):
             'institute_address': Textarea(attrs={'cols': 30, 'rows': 3}),
         }
 
+
 class ParticipantModelForm(ModelForm):
 
     class Meta:

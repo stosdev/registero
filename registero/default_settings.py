@@ -57,8 +57,8 @@ INSTALLED_APPS = (
     'registration',
     'guardian',
     'bootstrap3',
-    'news',
-    'team_registration',
+    'news.apps.NewsConfig',
+    'team_registration.apps.TeamRegistrationConfig',
 )
 
 MIDDLEWARE_CLASSES = (

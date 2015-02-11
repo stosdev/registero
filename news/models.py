@@ -1,4 +1,4 @@
-from django.utils.translation import ugettext as _, pgettext
+from django.utils.translation import ugettext as _, pgettext_lazy
 from django.contrib.sites.models import Site
 from django.contrib.sites.managers import CurrentSiteManager
 from django.core.urlresolvers import reverse
@@ -17,7 +17,7 @@ class News(models.Model):
 
     class Meta:
         verbose_name = _("News")
-        verbose_name_plural = pgettext("Plural", "News")
+        verbose_name_plural = pgettext_lazy("Plural", "News")
         ordering = ('-timestamp', )
 
     def get_absolute_url(self):
