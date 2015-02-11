@@ -30,6 +30,12 @@ class CoachProfile(models.Model):
         verbose_name = _("Coach Profile")
         verbose_name_plural = _("Coach Profiles")
 
+    def _participants_number(self):
+        q = self.user.teams.aggregate(count=models.Count('participants'))
+        return q['count']
+    _participants_number.short_description = _("Number of participants")
+    participants_number = property(_participants_number)
+
     def get_absolute_url(self):
         return reverse('team.views.management', args=())
 
