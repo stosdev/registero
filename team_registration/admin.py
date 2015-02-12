@@ -16,6 +16,7 @@ def export_teams(modeladmin, request, queryset):
     writer = csv.writer(response)
     writer.writerow([
         smart_str(unicode(_("Institute name"))),
+        smart_str(unicode(_("Institute type"))),
         smart_str(unicode(_("Accomodation required"))),
         smart_str(unicode(_("Team order"))),
         smart_str(unicode(_("First name"))),
@@ -33,6 +34,7 @@ def export_teams(modeladmin, request, queryset):
 
             writer.writerow([
                 smart_str(coach_profile.institute_name),
+                smart_str(coach_profile.get_institute_type_display()),
                 smart_str(accomodation_required),
                 smart_str(team.order),
                 smart_str(participant.first_name),
@@ -49,6 +51,7 @@ def export_institutes(modeladmin, request, queryset):
     writer = csv.writer(response)
     writer.writerow([
         smart_str(unicode(_("Institute name"))),
+        smart_str(unicode(_("Institute type"))),
         smart_str(unicode(_("Number of teams"))),
         smart_str(unicode(_("Number of participants"))),
         smart_str(unicode(_("Accomodation required"))),
@@ -64,6 +67,7 @@ def export_institutes(modeladmin, request, queryset):
 
         writer.writerow([
             smart_str(profile.institute_name),
+            smart_str(profile.get_institute_type_display()),
             smart_str(profile.user.teams.count()),
             smart_str(profile.participant_count),
             smart_str(accomodation_required),
@@ -79,7 +83,8 @@ export_institutes.short_description = _("Export institute data to csv")
 class CoachProfileAdmin(admin.ModelAdmin):
     fieldsets = (
         (None, {
-            'fields': ('institute_name', 'accomodation_required'),
+            'fields': ('institute_name', 'institute_type',
+                       'accomodation_required'),
         }),
         (_("Additional info"), {
             'classes': ('collapse',),

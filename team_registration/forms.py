@@ -13,7 +13,7 @@ class CoachProfileModelForm(ModelForm):
 
     class Meta:
         model = CoachProfile
-        fields = ('institute_name', 'accomodation_required',
+        fields = ('institute_name', 'institute_type', 'accomodation_required',
                   'institute_address', 'institute_nip', 'comment')
         widgets = {
             'institute_address': Textarea(attrs={'cols': 30, 'rows': 3}),

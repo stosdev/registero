@@ -8,10 +8,20 @@ from django.db import models
 class CoachProfile(models.Model):
     """The team coaches profile which has details about the teams origin."""
 
+    UNIVERSITY = 'u'
+    SCHOOL = 's'
+
+    INSTITUTE_TYPES = (
+        (UNIVERSITY, _("University")),
+        (SCHOOL, _("School")),
+    )
+
     user = models.OneToOneField(User, related_name='coach_profile')
     institute_name = models.CharField(_("Institute name"), max_length=255)
     institute_name.help_text = _(
         "The name of the school/university providing teams for this coach.")
+    institute_type = models.CharField(_("Institute type"), max_length=1,
+                                      choices=INSTITUTE_TYPES)
     accomodation_required = models.BooleanField(_("Accomodation required"),
                                                 default=False)
     accomodation_required.help_text = _(

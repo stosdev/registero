@@ -13,6 +13,7 @@ from models import Team, Participant
 from forms import CoachProfileModelForm, ParticipantModelForm
 import json
 
+
 class ParticipantCreateView(CreateView):
     form_class = ParticipantModelForm
     template_name = 'team_registration/participant_form.html'
@@ -115,6 +116,7 @@ class TeamManagementView(FormView):
             coach_profile = self.request.user.coach_profile
             initial.update({
                 'institute_name': coach_profile.institute_name,
+                'institute_type': coach_profile.institute_type,
                 'institute_address': coach_profile.institute_address,
                 'accomodation_required': coach_profile.accomodation_required,
                 'institute_nip': coach_profile.institute_nip,
@@ -129,6 +131,7 @@ class TeamManagementView(FormView):
         res = form.save(commit=False)
         try:
             user.coach_profile.institute_name = res.institute_name
+            user.coach_profile.institute_type = res.institute_type
             user.coach_profile.comment = res.comment
             user.coach_profile.accomodation_required = \
                 res.accomodation_required
@@ -159,6 +162,16 @@ class TeamDeleteView(DeleteView):
             raise PermissionDenied()
 
         return team
+
+    def delete(self, request, *args, **kwargs):
+        response = super(TeamDeleteView, self).delete(request, *args, **kwargs)
+
+        teams = Team.objects.filter(coach=request.user).order_by('order')
+        for team, order in zip(teams, xrange(1, len(teams) + 1)):
+            team.order = order
+            team.save()
+
+        return response
 
 
 class TeamReorderView(View):
