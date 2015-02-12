@@ -202,7 +202,7 @@ msgstr ""
 #: templates/registration/activation_complete.html:8
 msgid ""
 "Thank you for your registration. You may create your teams by clicking below."
-msgstr "Dziękujemy za rejestrację. Możesz tworzyć drużyny klikająć poniżej."
+msgstr "Dziękujemy za rejestrację. Możesz tworzyć drużyny klikając poniżej."
 
 #: templates/registration/activation_email.txt:3
 msgid "Thank you for your registration"
