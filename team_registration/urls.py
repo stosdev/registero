@@ -12,7 +12,7 @@ urlpatterns = patterns('',
     url(r'^(?P<pk>\d+)/delete/$', TeamDeleteView.as_view(),
         name='team.views.delete'),
     url(r'^reorder/', TeamReorderView.as_view(),
-        name='team.views/reorder'),
+        name='team.views.reorder'),
 
     url(r'^(?P<team_pk>\d+)/participant/new/$',
         ParticipantCreateView.as_view(), name='participant.views.create'),
