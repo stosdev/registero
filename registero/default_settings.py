@@ -71,11 +71,6 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
 )
 
-AUTHENTICATION_BACKENDS = (
-    'django.contrib.auth.backends.ModelBackend',  # this is default
-    'guardian.backends.ObjectPermissionBackend',
-)
-
 ROOT_URLCONF = 'registero.urls'
 
 WSGI_APPLICATION = 'registero.wsgi.application'
