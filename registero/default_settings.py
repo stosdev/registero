@@ -55,7 +55,6 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.flatpages',
     'registration',
-    'guardian',
     'bootstrap3',
     'news.apps.NewsConfig',
     'team_registration.apps.TeamRegistrationConfig',
