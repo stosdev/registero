@@ -3,8 +3,6 @@ from django.utils.encoding import smart_str
 from django.contrib import admin
 from django.http import HttpResponse
 
-from guardian.admin import GuardedModelAdmin
-
 from models import CoachProfile, Team, Participant
 
 import csv
@@ -101,7 +99,7 @@ class ParticipantInline(admin.TabularInline):
 
 
 @admin.register(Team)
-class TeamAdmin(GuardedModelAdmin):
+class TeamAdmin(admin.ModelAdmin):
     list_display = ('coach', 'order', 'participant_count')
     search_fields = ('participants__first_name',
                      'participants__last_name')
@@ -110,7 +108,7 @@ class TeamAdmin(GuardedModelAdmin):
 
 
 @admin.register(Participant)
-class ParticipantAdmin(GuardedModelAdmin):
+class ParticipantAdmin(admin.ModelAdmin):
     fieldsets = (
         (None, {
             'fields': (('first_name', 'last_name'), 'shirt_size'),
