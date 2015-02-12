@@ -1,15 +1,17 @@
 from django.views.generic.edit import FormView, CreateView, DeleteView, \
     UpdateView
 from django.views.generic.base import RedirectView
+from django.views.generic import View
 from django.core.exceptions import ObjectDoesNotExist, PermissionDenied
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse_lazy
 from django.shortcuts import get_object_or_404
+from django.http import HttpResponse
 
 from models import Team, Participant
 from forms import CoachProfileModelForm, ParticipantModelForm
-
+import json
 
 class ParticipantCreateView(CreateView):
     form_class = ParticipantModelForm
@@ -157,3 +159,24 @@ class TeamDeleteView(DeleteView):
             raise PermissionDenied()
 
         return team
+
+
+class TeamReorderView(View):
+
+    def post(self, request):
+        try:
+            data = json.loads(request.POST['data'])
+        except:
+            return HttpResponse(status=400)
+
+        teams = Team.objects.filter(coach=request.user)
+
+        for ordering in data:
+            try:
+                team = teams.get(pk=int(ordering['id']))
+                team.order = int(ordering['order'])
+                team.save()
+            except:
+                raise PermissionDenied()
+
+        return HttpResponse()

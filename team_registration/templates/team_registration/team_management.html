@@ -17,11 +17,11 @@
 <p>{% trans "The final contest team list will be filled by choosing teams from each institutes team list. The order in which you provide the teams matters. After you create your teams please drag-and-drop them into an order based on their importance." %}</p>
 <div class="teams-container">
 {% for team in team_list %}
-<div class="panel panel-default">
+<div class="panel panel-default" data-id="{{ team.pk }}">
 
   <div class="panel-heading">
     <a href="{% url "team.views.delete" team.pk %}" class="btn btn-danger pull-right"><i class="fa fa-trash-o"></i> {% trans "Remove" %}</a>
-    <h5>{% trans "Team" %} {{ team.order }}</h5>
+    <h5>{% trans "Team" %} <span class="team-order">{{ team.order }}</span></h5>
   </div>
 
   <div class="panel-body">
@@ -36,7 +36,7 @@
     {% endif %}
 
     {% if team.participants.all %}
-    <table class="table table-stripped table-condensed">
+    <table class="table table-stripped table-condensed" data-team-id="{{ team.pk }}">
       <thead>
         <tr>
           <th>{% trans "First name" %}</th>
@@ -94,7 +94,40 @@
       $('#id_institute_nip').parent().toggle();
     });
 
-    $('.teams-container').sortable();
+    $('.teams-container').sortable({
+      stop: function(event, ui) {
+        var order = 1;
+        var json = []; // The json data sent to the server on sort.
+
+        /* When the user drops the team get the ordering of all the teams
+         * and put in into the json array. */
+        $('.teams-container').children().each(function(){
+
+          json.push({
+            id: $(this).attr('data-id'),
+            order: order,
+          });
+
+          // Change the order displayed on the page.
+          $(this).find('.team-order').text(order);
+
+          // The next item will have the next order.
+          order += 1;
+        });
+
+        // Send the order to the server.
+        $.ajax({
+          type: 'post',
+          url: 'reorder/',
+          data: {
+            data: JSON.stringify(json),
+          },
+          error: function(p){
+            alert("Connection error, try again later.");
+          },
+        });
+      },
+    });
   });
 </script>
 {% endblock %}

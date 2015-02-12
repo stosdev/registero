@@ -55,6 +55,7 @@ class Team(models.Model):
     class Meta:
         verbose_name = _("Team")
         verbose_name_plural = _("Teams")
+        ordering = ('order', )
 
     def _participant_count(self):
         return self.participants.count()
