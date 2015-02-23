@@ -1,3 +1,4 @@
+#-*- coding: utf-8 -*-
 from django.utils.translation import pgettext_lazy
 from django.apps import AppConfig
 

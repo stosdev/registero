@@ -1,3 +1,4 @@
+#-*- coding: utf-8 -*-
 from django.utils.translation import ugettext as _, pgettext_lazy
 from django.contrib.sites.models import Site
 from django.contrib.sites.managers import CurrentSiteManager
@@ -24,4 +25,4 @@ class News(models.Model):
         return reverse('news.views.detail', args=[str(self.id), ])
 
     def __unicode__(self):
-        return "{} {} {}".format(self.id, self.title, self.timestamp)
+        return u"{} {} {}".format(self.id, self.title, self.timestamp)
