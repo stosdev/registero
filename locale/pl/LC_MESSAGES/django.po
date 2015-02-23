@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-23 19:04+0100\n"
+"POT-Creation-Date: 2015-02-23 21:00+0100\n"
 "PO-Revision-Date: 2015-02-06 14:31+01\n"
 "Last-Translator: Paweł Jan Czochański <czochanski@gmail.com>\n"
 "Language-Team: pl\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 
-#: registero/default_settings.py:132 registero/settings.py:138
+#: registero/default_settings.py:133 registero/settings.py:140
 msgid "English"
 msgstr "Angielski"
 
-#: registero/default_settings.py:133 registero/settings.py:139
+#: registero/default_settings.py:134 registero/settings.py:141
 msgid "Polish"
 msgstr "Polski"
 
@@ -84,11 +84,11 @@ msgstr "Do góry"
 msgid "About"
 msgstr "O turnieju"
 
-#: templates/base.html:75 templates/base.html.py:126
+#: templates/base.html:75 templates/base.html.py:127
 msgid "Details"
 msgstr "Cechy turnieju"
 
-#: templates/base.html:78 templates/base.html.py:188
+#: templates/base.html:78 templates/base.html.py:189
 msgid "Sponsors"
 msgstr "Sponsorzy"
 
@@ -131,19 +131,23 @@ msgstr ""
 "Białostockiej w dwóch kategoriach wiekowych - uczniów szkół średnich i "
 "studentów."
 
-#: templates/base.html:136
+#: templates/base.html:113
+msgid "Regulations"
+msgstr "Regulamin"
+
+#: templates/base.html:137
 msgid "Teams"
 msgstr "Drużyny"
 
-#: templates/base.html:138
+#: templates/base.html:139
 msgid "Teams can consist of from two to three."
 msgstr "Drużyny mogą składać się z dwóch do trzech osób."
 
-#: templates/base.html:148
+#: templates/base.html:149
 msgid "Six winning teams"
 msgstr "Sześć zwycięskich drużyn"
 
-#: templates/base.html:150
+#: templates/base.html:151
 msgid ""
 "Three winning places in two age categories - school level and university "
 "level."
@@ -151,11 +155,11 @@ msgstr ""
 "Po trzy miejsca w dwóch kategoriach wiekowych - uczniowiowskiej i "
 "studenckiej."
 
-#: templates/base.html:160
+#: templates/base.html:161
 msgid "Accommodation"
 msgstr "Zakwaterowanie"
 
-#: templates/base.html:162
+#: templates/base.html:163
 msgid ""
 "For arrival teams for an additional charge an accommodation is provided in "
 "Białystok University of Technology, and Białystok University dorms"
@@ -163,11 +167,11 @@ msgstr ""
 "Dla przyjezdnych drużyn za dopłatą zapewniamy zakwaterowanie <br />w "
 "akademikach Politechniki Białostockiej i Uniwersytetu <br />w Białymstoku."
 
-#: templates/base.html:172
+#: templates/base.html:173
 msgid "Convinient time and place"
 msgstr "Dogodne miejsce i termin"
 
-#: templates/base.html:174
+#: templates/base.html:175
 msgid ""
 "21-22 od March (Hooky Day) is the perfect time to run off from classes to "
 "Białystok University of Technology Information Technology Faculty building "
@@ -176,11 +180,11 @@ msgstr ""
 "21-22 marca (dzień wagarowicza) to idealny termin, by opuścić zajęcia ruszyć "
 "na Wydział Informatyki Politechniki Białostockiej i zdobyć laur zwycięzcy."
 
-#: templates/base.html:195
+#: templates/base.html:196
 msgid "Become a sponsor"
 msgstr "Zostań sponsorem"
 
-#: templates/base.html:203
+#: templates/base.html:204
 msgctxt "Plural"
 msgid "News"
 msgstr "Aktualności"

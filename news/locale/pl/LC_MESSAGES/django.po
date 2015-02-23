@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-23 19:04+0100\n"
+"POT-Creation-Date: 2015-02-23 21:00+0100\n"
 "PO-Revision-Date: 2015-02-06 14:31+01\n"
 "Last-Translator: Paweł Jan Czochański <czochanski@gmail.com>\n"
 "Language-Team: pl\n"
@@ -18,28 +18,28 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 
-#: news/apps.py:7 news/models.py:20
+#: news/apps.py:8 news/models.py:21
 msgctxt "Plural"
 msgid "News"
 msgstr "Aktualności"
 
-#: news/models.py:12
+#: news/models.py:13
 msgid "Title"
 msgstr "Tytuł"
 
-#: news/models.py:13
+#: news/models.py:14
 msgid "Content"
 msgstr "Zawartość"
 
-#: news/models.py:14
+#: news/models.py:15
 msgid "Timestamp"
 msgstr "Czas dodania"
 
-#: news/models.py:15
+#: news/models.py:16
 msgid "Site"
 msgstr "Strona"
 
-#: news/models.py:19
+#: news/models.py:20
 msgid "News"
 msgstr "Aktualność"
 
