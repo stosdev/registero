@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-12 19:48+0100\n"
+"POT-Creation-Date: 2015-02-23 19:04+0100\n"
 "PO-Revision-Date: 2015-02-06 14:31+01\n"
 "Last-Translator: Paweł Jan Czochański <czochanski@gmail.com>\n"
 "Language-Team: pl\n"
@@ -18,13 +18,25 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 
-#: registero/default_settings.py:138 registero/settings.py:138
+#: registero/default_settings.py:132 registero/settings.py:138
 msgid "English"
 msgstr "Angielski"
 
-#: registero/default_settings.py:139 registero/settings.py:139
+#: registero/default_settings.py:133 registero/settings.py:139
 msgid "Polish"
 msgstr "Polski"
+
+#: templates/403.html:8
+msgid "Permission denied."
+msgstr "Brak wymaganych uprawnień."
+
+#: templates/404.html:8
+msgid "The requested page does not exist."
+msgstr "Żądana strona nie istnieje."
+
+#: templates/500.html:8
+msgid "Internal server error."
+msgstr "Błąd serwera."
 
 #: templates/base.html:14 templates/secondary_base.html:13
 msgid "Podlachia Team Programming Contest 2015"
