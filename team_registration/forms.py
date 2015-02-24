@@ -1,4 +1,4 @@
-#-*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 from django.forms import ModelForm, Textarea, ValidationError
 from localflavor.pl.forms import PLNIPField
 from models import Team, Participant, CoachProfile

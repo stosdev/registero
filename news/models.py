@@ -1,4 +1,4 @@
-#-*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 from django.utils.translation import ugettext as _, pgettext_lazy
 from django.contrib.sites.models import Site
 from django.contrib.sites.managers import CurrentSiteManager

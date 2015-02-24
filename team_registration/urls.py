@@ -1,4 +1,4 @@
-#-*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 from django.conf.urls import patterns, url
 from views import TeamManagementView, TeamCreateView, TeamDeleteView, \
     TeamReorderView, ParticipantCreateView, ParticipantDeleteView, \
