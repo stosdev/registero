@@ -1,4 +1,4 @@
-#-*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 
