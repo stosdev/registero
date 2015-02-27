@@ -1,7 +1,5 @@
 {% load staticfiles %}
 {% load i18n %}
-{% load solo_tags %}
-{% get_solo 'team_registration.TeamRegistrationConfiguration' as registration_config %}
 
 <!DOCTYPE html>
 <html lang="pl">
@@ -38,37 +36,8 @@
     <nav id="sidebar-wrapper">
       <ul class="sidebar-nav">
         <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
-        {% if user.is_authenticated %}
-        <li class="sidebar-brand">
-          {% trans "Welcome" %} {{ user.username }}
-        </li>
-        {% if user.is_staff %}
-        <li>
-          <a href="{% url "admin:index" %}">{% trans "Admin panel" %}</a>
-        </li>
-        {% endif %}
-        {% if registration_config.registration_active %}
-        <li>
-          <a href="{% url "team.views.management" %}">{% trans "Register teams" %}</a>
-        </li>
-        {% endif %}
-        <li>
-          <a href="{% url "auth_password_change" %}">{% trans "Change password" %}</a>
-        </li>
-        <li>
-          <a href="{% url "auth_logout" %}">{% trans "Log out" %}</a>
-        </li>
-        {% else %}
-        <li class="sidebar-brand">
-          {% trans "Welcome" %}
-        </li>
-        <li>
-          <a href="{% url "registration_register" %}">{% trans "Register" %}</a>
-        </li>
-        <li>
-          <a href="{% url "auth_login" %}?next={{ request.path }}">{% trans "Log in" %}</a>
-        </li>
-        {% endif %}
+
+        {% include "usermenu.html" %}
       </ul>
     </nav>
 
