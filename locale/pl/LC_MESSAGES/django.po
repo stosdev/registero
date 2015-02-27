@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-23 21:00+0100\n"
+"POT-Creation-Date: 2015-02-27 01:55+0100\n"
 "PO-Revision-Date: 2015-02-06 14:31+01\n"
 "Last-Translator: Paweł Jan Czochański <czochanski@gmail.com>\n"
 "Language-Team: pl\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 
-#: registero/default_settings.py:133 registero/settings.py:140
+#: registero/default_settings.py:133 registero/settings.py:138
 msgid "English"
 msgstr "Angielski"
 
-#: registero/default_settings.py:134 registero/settings.py:141
+#: registero/default_settings.py:134 registero/settings.py:139
 msgid "Polish"
 msgstr "Polski"
 
@@ -42,82 +42,86 @@ msgstr "Błąd serwera."
 msgid "Podlachia Team Programming Contest 2015"
 msgstr "Podlaski Turniej w Programowaniu Zespołowym 2015"
 
-#: templates/base.html:43 templates/base.html.py:56
-#: templates/secondary_base.html:41 templates/secondary_base.html.py:54
+#: templates/base.html:43 templates/base.html.py:61
+#: templates/secondary_base.html:41 templates/secondary_base.html.py:59
 msgid "Welcome"
 msgstr "Witamy"
 
-#: templates/base.html:46 templates/base.html.py:100
+#: templates/base.html:47 templates/secondary_base.html:45
+msgid "Admin panel"
+msgstr "Panel administracyjny"
+
+#: templates/base.html:51 templates/base.html.py:105
 #: templates/registration/activation_complete.html:9
-#: templates/secondary_base.html:44
+#: templates/secondary_base.html:49
 msgid "Register teams"
 msgstr "Zarejestruj drużyny"
 
-#: templates/base.html:49 templates/secondary_base.html:47
+#: templates/base.html:54 templates/secondary_base.html:52
 msgid "Change password"
 msgstr "Zmień hasło"
 
-#: templates/base.html:52 templates/secondary_base.html:50
+#: templates/base.html:57 templates/secondary_base.html:55
 msgid "Log out"
 msgstr "Wyloguj"
 
-#: templates/base.html:59 templates/registration/login.html:15
-#: templates/secondary_base.html:57
+#: templates/base.html:64 templates/registration/login.html:15
+#: templates/secondary_base.html:62
 msgid "Register"
 msgstr "Zarejestruj"
 
-#: templates/base.html:62 templates/registration/login.html:7
+#: templates/base.html:67 templates/registration/login.html:7
 #: templates/registration/password_reset_complete.html:9
-#: templates/secondary_base.html:60
+#: templates/secondary_base.html:65
 msgid "Log in"
 msgstr "Zaloguj się"
 
-#: templates/base.html:66
+#: templates/base.html:71
 msgid "Navigation"
 msgstr "Nawigacja"
 
-#: templates/base.html:69
+#: templates/base.html:74
 msgid "Home"
 msgstr "Do góry"
 
-#: templates/base.html:72
+#: templates/base.html:77
 msgid "About"
 msgstr "O turnieju"
 
-#: templates/base.html:75 templates/base.html.py:127
+#: templates/base.html:80 templates/base.html.py:132
 msgid "Details"
 msgstr "Cechy turnieju"
 
-#: templates/base.html:78 templates/base.html.py:189
+#: templates/base.html:83 templates/base.html.py:194
 msgid "Sponsors"
 msgstr "Sponsorzy"
 
-#: templates/base.html:81
+#: templates/base.html:86
 msgid "News"
 msgstr "Aktualności"
 
-#: templates/base.html:84 templates/footer.html:8
+#: templates/base.html:89 templates/footer.html:8
 msgid "Contact"
 msgstr "Kontakt"
 
-#: templates/base.html:94 templates/secondary_base.html:70
+#: templates/base.html:99 templates/secondary_base.html:75
 msgctxt "Logo text"
 msgid "Podlachia Team Programming Contest"
 msgstr "Podlaski Turniej<br />w Programowaniu Zespołowym"
 
-#: templates/base.html:95
+#: templates/base.html:100
 msgid "Register a team and take part!"
 msgstr "Zarejestruj drużynę i weź udział!"
 
-#: templates/base.html:101
+#: templates/base.html:106
 msgid "More info"
 msgstr "Więcej informacji"
 
-#: templates/base.html:111
+#: templates/base.html:116
 msgid "Podlachia Team Programming Contest"
 msgstr "Podlaski Turniej w Programowaniu Zespołowym"
 
-#: templates/base.html:112
+#: templates/base.html:117
 msgid ""
 "An annual programming event created by, and organized at the Białystok "
 "University of Technology Information Technology Faculty on which 30 two to "
@@ -131,23 +135,23 @@ msgstr ""
 "Białostockiej w dwóch kategoriach wiekowych - uczniów szkół średnich i "
 "studentów."
 
-#: templates/base.html:113
+#: templates/base.html:118
 msgid "Regulations"
 msgstr "Regulamin"
 
-#: templates/base.html:137
+#: templates/base.html:142
 msgid "Teams"
 msgstr "Drużyny"
 
-#: templates/base.html:139
+#: templates/base.html:144
 msgid "Teams can consist of from two to three."
 msgstr "Drużyny mogą składać się z dwóch do trzech osób."
 
-#: templates/base.html:149
+#: templates/base.html:154
 msgid "Six winning teams"
 msgstr "Sześć zwycięskich drużyn"
 
-#: templates/base.html:151
+#: templates/base.html:156
 msgid ""
 "Three winning places in two age categories - school level and university "
 "level."
@@ -155,11 +159,11 @@ msgstr ""
 "Po trzy miejsca w dwóch kategoriach wiekowych - uczniowiowskiej i "
 "studenckiej."
 
-#: templates/base.html:161
+#: templates/base.html:166
 msgid "Accommodation"
 msgstr "Zakwaterowanie"
 
-#: templates/base.html:163
+#: templates/base.html:168
 msgid ""
 "For arrival teams for an additional charge an accommodation is provided in "
 "Białystok University of Technology, and Białystok University dorms"
@@ -167,11 +171,11 @@ msgstr ""
 "Dla przyjezdnych drużyn za dopłatą zapewniamy zakwaterowanie <br />w "
 "akademikach Politechniki Białostockiej i Uniwersytetu <br />w Białymstoku."
 
-#: templates/base.html:173
+#: templates/base.html:178
 msgid "Convinient time and place"
 msgstr "Dogodne miejsce i termin"
 
-#: templates/base.html:175
+#: templates/base.html:180
 msgid ""
 "21-22 od March (Hooky Day) is the perfect time to run off from classes to "
 "Białystok University of Technology Information Technology Faculty building "
@@ -180,11 +184,11 @@ msgstr ""
 "21-22 marca (dzień wagarowicza) to idealny termin, by opuścić zajęcia ruszyć "
 "na Wydział Informatyki Politechniki Białostockiej i zdobyć laur zwycięzcy."
 
-#: templates/base.html:196
+#: templates/base.html:201
 msgid "Become a sponsor"
 msgstr "Zostań sponsorem"
 
-#: templates/base.html:204
+#: templates/base.html:209
 msgctxt "Plural"
 msgid "News"
 msgstr "Aktualności"

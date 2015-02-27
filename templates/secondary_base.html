@@ -40,6 +40,11 @@
         <li class="sidebar-brand">
           {% trans "Welcome" %} {{ user.username }}
         </li>
+        {% if user.is_staff %}
+        <li>
+          <a href="{% url "admin:index" %}">{% trans "Admin panel" %}</a>
+        </li>
+        {% endif %}
         <li>
           <a href="{% url "team.views.management" %}">{% trans "Register teams" %}</a>
         </li>
