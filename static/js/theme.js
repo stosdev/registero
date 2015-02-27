@@ -13,6 +13,10 @@ $("#menu-toggle").click(function(e) {
 
 // Scrolls to the selected menu item on the page
 $(function() {
+  $(function() {
+    $('.tooltip-wrapper').tooltip();
+  });
+
   $('a[href*=#]:not([href=#])').click(function() {
     if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
 

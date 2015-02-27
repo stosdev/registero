@@ -57,6 +57,7 @@ INSTALLED_APPS = (
     'django.contrib.flatpages',
     'registration',
     'bootstrap3',
+    'solo',
     'news.apps.NewsConfig',
     'team_registration.apps.TeamRegistrationConfig',
 )

@@ -1,6 +1,8 @@
 {% load staticfiles %}
 {% load i18n %}
 {% load flatpages %}
+{% load solo_tags %}
+{% get_solo 'team_registration.TeamRegistrationConfiguration' as registration_config %}
 
 <!DOCTYPE html>
 <html lang="pl">
@@ -47,9 +49,11 @@
           <a href="{% url "admin:index" %}">{% trans "Admin panel" %}</a>
         </li>
         {% endif %}
+        {% if registration_config.registration_active %}
         <li>
           <a href="{% url "team.views.management" %}">{% trans "Register teams" %}</a>
         </li>
+        {% endif %}
         <li>
           <a href="{% url "auth_password_change" %}">{% trans "Change password" %}</a>
         </li>
@@ -102,7 +106,27 @@
         </div>
         <br/>
         <ul class="navigation-buttons">
+          {% if registration_config.registration_active %}
           <li><a href="{% url "team.views.management" %}" class="btn btn-primary btn-lg"><i class="fa fa-users"></i> {% trans "Register teams" %}</a></li>
+          {% elif registration_config.not_started %}
+          <li>
+            <div class="tooltip-wrapper" data-toggle="tooltip" data-placement="top" title="{% trans "Team registration will start on" %} {{ registration_config.start|date:"d M Y" }} {{ registration_config.start|time:"H:i" }}.">
+              <a href="#" class="btn btn-primary btn-lg" disabled="disabled"><i class="fa fa-users"></i> {% trans "Register teams" %}</a>
+              </div>
+          </li>
+          {% elif registration_config.has_ended %}
+          <li>
+            <div class="tooltip-wrapper" data-toggle="tooltip" data-placement="top" title="{% trans "Team registration has ended on" %} {{ registration_config.end|date:"d M Y" }} {{ registration_config.end|time:"H:i" }}.">
+              <a href="#" class="btn btn-primary btn-lg" disabled="disabled"><i class="fa fa-users"></i> {% trans "Register teams" %}</a>
+            </div>
+          </li>
+          {% else %}
+          <li>
+            <div class="tooltip-wrapper" data-toggle="tooltip" data-placement="top" title="{% trans "Team registration currently disabled." %}">
+              <a href="#" class="btn btn-primary btn-lg" disabled="disabled"><i class="fa fa-users"></i> {% trans "Register teams" %}</a>
+            </div>
+          </li>
+          {% endif %}
           <li><a href="#about" class="btn btn-dark btn-lg"><i class="fa fa-info"></i> {% trans "More info" %}</a></li>
         </ul>
       </div>

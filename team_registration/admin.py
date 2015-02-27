@@ -4,7 +4,10 @@ from django.utils.encoding import smart_str
 from django.contrib import admin
 from django.http import HttpResponse
 
-from models import CoachProfile, Team, Participant
+from models import TeamRegistrationConfiguration, CoachProfile, Team,\
+    Participant
+
+from solo.admin import SingletonModelAdmin
 
 import csv
 
@@ -76,6 +79,11 @@ def export_institutes(modeladmin, request, queryset):
         ])
     return response
 export_institutes.short_description = _("Export institute data to csv")
+
+
+@admin.register(TeamRegistrationConfiguration)
+class TeamRegistrationConfigurationAdmin(SingletonModelAdmin):
+    pass
 
 
 @admin.register(CoachProfile)

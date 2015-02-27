@@ -1,9 +1,55 @@
 # -*- coding: utf-8 -*-
 from django.utils.translation import ugettext as _
+from django.utils import timezone
+
 from django.contrib.auth.models import User
+
 from django.core.urlresolvers import reverse
 
 from django.db import models
+
+from solo.models import SingletonModel
+
+from datetime import timedelta
+
+
+def ten_days_from_now():
+        return timezone.now() + timedelta(days=10)
+
+
+class TeamRegistrationConfiguration(SingletonModel):
+    """Class for storing global registration configuration."""
+
+    enabled = models.BooleanField(_("Team registration enabled"),
+                                  default=False)
+    enabled.help_text = _("If set to false the team registration is disabled,\
+                          now matter the start and end settings below.")
+    start = models.DateTimeField(_("Team registration start"),
+                                 default=timezone.now)
+    end = models.DateTimeField(_("Team registration end"),
+                               default=ten_days_from_now)
+
+    @property
+    def registration_active(self):
+        """Return true if registration is active."""
+        return self.enabled and self.start <= timezone.now() \
+            and timezone.now() <= self.end
+
+    @property
+    def not_started(self):
+        """Return true if the registration is yet to start."""
+        return self.enabled and timezone.now() <= self.start
+
+    @property
+    def has_ended(self):
+        """Return true if the registration has ended."""
+        return self.enabled and self.end <= timezone.now()
+
+    class Meta:
+        verbose_name = _("Team registration configuration")
+
+    def __unicode__(self):
+        return u"Team Registration configuration"
 
 
 class CoachProfile(models.Model):
