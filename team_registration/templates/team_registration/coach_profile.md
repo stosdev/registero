@@ -7,7 +7,8 @@
 {% trans "Accomodation required" %}: {{ coach_profile.accomodation_required|yesno }}
 {% if coach_profile.accomodation_required %}{% trans "Institute address" %}: {{ coach_profile.institute_address }}
 
-{% trans "Institutes NIP" %}: {{ coach_profile.institute_nip }}{% endif %}{% if coach_profile.comment %}{% trans "Comment" %}: {{ coach_profile.comment }}{% endif %}
+{% trans "Institutes NIP" %}: {{ coach_profile.institute_nip }}{% endif %}
+{% if coach_profile.comment %}{% trans "Comment" %}: {{ coach_profile.comment }}{% endif %}
 {% for team in coach_profile.user.teams.all %}
 {% trans "Team" %} {{ team.order }}
 {% for participant in team.participants.all %}
