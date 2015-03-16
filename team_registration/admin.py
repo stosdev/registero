@@ -78,9 +78,9 @@ def export_institutes(modeladmin, request, queryset):
             smart_str(profile.user.teams.count()),
             smart_str(profile.participant_count),
             smart_str(accomodation_required),
-            smart_str(profile.institute_address),
+            smart_str(profile.institute_address.replace('\n', ' ')),
             smart_str(profile.institute_nip),
-            smart_str(profile.comment)
+            smart_str(profile.comment.replace('\n', ' '))
         ])
     return response
 export_institutes.short_description = _("Export institute data to csv")
