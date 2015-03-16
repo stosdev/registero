@@ -78,9 +78,9 @@ def export_institutes(modeladmin, request, queryset):
             smart_str(profile.user.teams.count()),
             smart_str(profile.participant_count),
             smart_str(accomodation_required),
-            smart_str(profile.institute_address.replace('\n', ' ')),
+            smart_str(profile.institute_address.replace('\r\n', ' ')),
             smart_str(profile.institute_nip),
-            smart_str(profile.comment.replace('\n', ' '))
+            smart_str(profile.comment.replace('\r\n', ' '))
         ])
     return response
 export_institutes.short_description = _("Export institute data to csv")
@@ -95,7 +95,7 @@ class TeamRegistrationConfigurationAdmin(SingletonModelAdmin):
 class CoachProfileAdmin(admin.ModelAdmin):
     fieldsets = (
         (None, {
-            'fields': ('institute_name', 'institute_type',
+            'fields': ('user', 'institute_name', 'institute_type',
                        'accomodation_required'),
         }),
         (_("Additional info"), {
