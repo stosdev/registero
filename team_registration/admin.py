@@ -55,6 +55,14 @@ def export_teams_cvs(modeladmin, request, queryset):
 export_teams_cvs.short_description = _("Export teams to csv")
 
 
+def get_coaches_for_teams(queryset):
+    coaches = []
+    for team in queryset.all():
+        if team.coach not in coaches:
+            coaches.append(team.coach)
+    return coaches
+
+
 def export_teams_markdown(modeladmin, request, queryset):
     response = HttpResponse(content_type='text/x-markdown')
     response['Content-Disposition'] = 'attachment; filename=teams.md'
@@ -63,10 +71,16 @@ def export_teams_markdown(modeladmin, request, queryset):
     response.write('\n')
     response.write('=======\n')
 
-    coach_profiles = (team.coach.coach_profile for team in queryset.all())
+    coaches = get_coaches_for_teams(queryset)
     template = loader.get_template('team_registration/coach_profile.md')
 
-    for coach_profile in coach_profiles:
+    for coach in coaches:
+
+        try:
+            coach_profile = coach.coach_profile
+        except ObjectDoesNotExist:
+            continue
+
         response.write(template.render(RequestContext(request,
             {'coach_profile': coach_profile})))
 
