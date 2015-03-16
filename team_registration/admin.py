@@ -3,6 +3,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.utils.encoding import smart_str
 from django.contrib import admin
 from django.http import HttpResponse
+from django.core.exceptions import ObjectDoesNotExist
 
 from models import TeamRegistrationConfiguration, CoachProfile, Team,\
     Participant
@@ -27,9 +28,10 @@ def export_teams(modeladmin, request, queryset):
     ])
     for team in queryset.all():
         for participant in team.participants.all():
-            coach_profile = team.coach.coach_profile
 
-            if coach_profile is None:
+            try:
+                coach_profile = team.coach.coach_profile
+            except ObjectDoesNotExist:
                 continue
 
             if coach_profile.accomodation_required:
