@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-27 03:26+0100\n"
+"POT-Creation-Date: 2015-03-16 14:16+0100\n"
 "PO-Revision-Date: 2015-02-06 14:31+01\n"
 "Last-Translator: Paweł Jan Czochański <czochanski@gmail.com>\n"
 "Language-Team: pl\n"
@@ -18,79 +18,91 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 
-#: team_registration/admin.py:20 team_registration/admin.py:55
+#: team_registration/admin.py:22 team_registration/admin.py:83
 #: team_registration/models.py:67
 msgid "Institute name"
 msgstr "Nazwa ośrodka"
 
-#: team_registration/admin.py:21 team_registration/admin.py:56
+#: team_registration/admin.py:23 team_registration/admin.py:84
 #: team_registration/models.py:70
 msgid "Institute type"
 msgstr "Typ ośrodka"
 
-#: team_registration/admin.py:22 team_registration/admin.py:59
+#: team_registration/admin.py:24 team_registration/admin.py:87
 #: team_registration/models.py:72
 msgid "Accomodation required"
 msgstr "Wymagane zakwaterowanie"
 
-#: team_registration/admin.py:23
+#: team_registration/admin.py:25 team_registration/models.py:118
+msgid "Coach"
+msgstr "Trener"
+
+#: team_registration/admin.py:26
 msgid "Team order"
 msgstr "Kolejność drużyny"
 
-#: team_registration/admin.py:24 team_registration/models.py:144
+#: team_registration/admin.py:27 team_registration/models.py:153
 #: team_registration/templates/team_registration/team_management.html:42
 msgid "First name"
 msgstr "Imię"
 
-#: team_registration/admin.py:25 team_registration/models.py:145
+#: team_registration/admin.py:28 team_registration/models.py:154
 #: team_registration/templates/team_registration/team_management.html:43
 msgid "Last name"
 msgstr "Nazwisko"
 
-#: team_registration/admin.py:26 team_registration/models.py:148
+#: team_registration/admin.py:29 team_registration/models.py:157
 #: team_registration/templates/team_registration/team_management.html:44
 msgid "Shirt size"
 msgstr "Wielkość koszulki"
 
-#: team_registration/admin.py:33 team_registration/admin.py:66
+#: team_registration/admin.py:40 team_registration/admin.py:94
 msgid "Yes"
 msgstr "Tak"
 
-#: team_registration/admin.py:35 team_registration/admin.py:68
+#: team_registration/admin.py:42 team_registration/admin.py:96
 msgid "No"
 msgstr "Nie"
 
-#: team_registration/admin.py:47
+#: team_registration/admin.py:55
 msgid "Export teams to csv"
 msgstr "Wyeksportuj drużyny do pliku csv"
 
-#: team_registration/admin.py:57
-msgid "Number of teams"
-msgstr "Ilość drużyn"
+#: team_registration/admin.py:62
+msgid "List of teams"
+msgstr "Lista drużyn"
 
-#: team_registration/admin.py:58 team_registration/models.py:94
-#: team_registration/models.py:119
+#: team_registration/admin.py:75
+msgid "Export teams to markdown"
+msgstr "Wyeksportuj drużyny do pliku markdown"
+
+#: team_registration/admin.py:85 team_registration/models.py:103
+msgid "Number of valid teams"
+msgstr "Ilość poprawnych drużyn"
+
+#: team_registration/admin.py:86 team_registration/models.py:94
+#: team_registration/models.py:128
 msgid "Number of participants"
 msgstr "Ilość uczestników"
 
-#: team_registration/admin.py:60 team_registration/models.py:76
+#: team_registration/admin.py:88 team_registration/models.py:76
 msgid "Institute address"
 msgstr "Adres ośrodka"
 
-#: team_registration/admin.py:61 team_registration/forms.py:11
+#: team_registration/admin.py:89 team_registration/forms.py:11
 #: team_registration/models.py:80
 msgid "Institutes NIP"
 msgstr "Numer NIP ośrodka"
 
-#: team_registration/admin.py:62 team_registration/models.py:84
+#: team_registration/admin.py:90 team_registration/models.py:84
 msgid "Comment"
 msgstr "Komentarz"
 
-#: team_registration/admin.py:81
+#: team_registration/admin.py:109
 msgid "Export institute data to csv"
 msgstr "Wyeksportuj dane instytutów do pliku csv"
 
-#: team_registration/admin.py:96
+#: team_registration/admin.py:124
 msgid "Additional info"
 msgstr "Informacje dodatkowe"
 
@@ -164,49 +176,45 @@ msgstr "Profil trenera"
 msgid "Coach Profiles"
 msgstr "Profile trenerów"
 
-#: team_registration/models.py:108
+#: team_registration/models.py:117
 msgid "Order"
 msgstr "Kolejność"
 
-#: team_registration/models.py:109
-msgid "Coach"
-msgstr "Trener"
-
-#: team_registration/models.py:113 team_registration/models.py:146
+#: team_registration/models.py:122 team_registration/models.py:155
 #: team_registration/templates/team_registration/team_management.html:24
 msgid "Team"
 msgstr "Drużyna"
 
-#: team_registration/models.py:114
+#: team_registration/models.py:123
 #: team_registration/templates/team_registration/team_management.html:16
 msgid "Teams"
 msgstr "Drużyny"
 
-#: team_registration/models.py:137
+#: team_registration/models.py:146
 msgid "Extra small"
 msgstr "Bardzo mała (XS)"
 
-#: team_registration/models.py:138
+#: team_registration/models.py:147
 msgid "Small"
 msgstr "Mała (S)"
 
-#: team_registration/models.py:139
+#: team_registration/models.py:148
 msgid "Medium"
 msgstr "Średnia (M)"
 
-#: team_registration/models.py:140
+#: team_registration/models.py:149
 msgid "Large"
 msgstr "Duża (L)"
 
-#: team_registration/models.py:141
+#: team_registration/models.py:150
 msgid "Extra large"
 msgstr "Bardzo duża (XL)"
 
-#: team_registration/models.py:152
+#: team_registration/models.py:161
 msgid "Participant"
 msgstr "Uczestnik"
 
-#: team_registration/models.py:153
+#: team_registration/models.py:162
 msgid "Participants"
 msgstr "Uczestnicy"
 

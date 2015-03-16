@@ -94,6 +94,15 @@ class CoachProfile(models.Model):
     _participant_count.short_description = _("Number of participants")
     participant_count = property(_participant_count)
 
+    def _valid_team_count(self):
+        count = 0
+        for team in self.user.teams.all():
+            if team.participant_count >= 2:
+                count += 1
+        return count
+    _valid_team_count.short_description = _("Number of valid teams")
+    valid_team_count = property(_valid_team_count)
+
     def get_absolute_url(self):
         return reverse('team.views.management', args=())
 

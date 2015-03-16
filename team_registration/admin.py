@@ -4,6 +4,7 @@ from django.utils.encoding import smart_str
 from django.contrib import admin
 from django.http import HttpResponse
 from django.core.exceptions import ObjectDoesNotExist
+from django.template import RequestContext, loader
 
 from models import TeamRegistrationConfiguration, CoachProfile, Team,\
     Participant
@@ -13,7 +14,7 @@ from solo.admin import SingletonModelAdmin
 import csv
 
 
-def export_teams(modeladmin, request, queryset):
+def export_teams_cvs(modeladmin, request, queryset):
     response = HttpResponse(content_type='text/csv')
     response['Content-Disposition'] = 'attachment; filename=teams.csv'
     writer = csv.writer(response)
@@ -21,6 +22,7 @@ def export_teams(modeladmin, request, queryset):
         smart_str(unicode(_("Institute name"))),
         smart_str(unicode(_("Institute type"))),
         smart_str(unicode(_("Accomodation required"))),
+        smart_str(unicode(_("Coach"))),
         smart_str(unicode(_("Team order"))),
         smart_str(unicode(_("First name"))),
         smart_str(unicode(_("Last name"))),
@@ -43,13 +45,34 @@ def export_teams(modeladmin, request, queryset):
                 smart_str(coach_profile.institute_name),
                 smart_str(coach_profile.get_institute_type_display()),
                 smart_str(accomodation_required),
+                smart_str(coach_profile.user),
                 smart_str(team.order),
                 smart_str(participant.first_name),
                 smart_str(participant.last_name),
                 smart_str(participant.shirt_size)
             ])
     return response
-export_teams.short_description = _("Export teams to csv")
+export_teams_cvs.short_description = _("Export teams to csv")
+
+
+def export_teams_markdown(modeladmin, request, queryset):
+    response = HttpResponse(content_type='text/x-markdown')
+    response['Content-Disposition'] = 'attachment; filename=teams.md'
+
+    response.write(_("List of teams"))
+    response.write('\n')
+    response.write('=======\n')
+
+    coach_profiles = (team.coach.coach_profile for team in queryset.all())
+    template = loader.get_template('team_registration/coach_profile.md')
+
+    for coach_profile in coach_profiles:
+        response.write(template.render(RequestContext(request,
+            {'coach_profile': coach_profile})))
+
+    return response
+
+export_teams_markdown.short_description = _("Export teams to markdown")
 
 
 def export_institutes(modeladmin, request, queryset):
@@ -59,7 +82,7 @@ def export_institutes(modeladmin, request, queryset):
     writer.writerow([
         smart_str(unicode(_("Institute name"))),
         smart_str(unicode(_("Institute type"))),
-        smart_str(unicode(_("Number of teams"))),
+        smart_str(unicode(_("Number of valid teams"))),
         smart_str(unicode(_("Number of participants"))),
         smart_str(unicode(_("Accomodation required"))),
         smart_str(unicode(_("Institute address"))),
@@ -75,7 +98,7 @@ def export_institutes(modeladmin, request, queryset):
         writer.writerow([
             smart_str(profile.institute_name),
             smart_str(profile.get_institute_type_display()),
-            smart_str(profile.user.teams.count()),
+            smart_str(profile.valid_team_count),
             smart_str(profile.participant_count),
             smart_str(accomodation_required),
             smart_str(profile.institute_address.replace('\r\n', ' ')),
@@ -103,7 +126,8 @@ class CoachProfileAdmin(admin.ModelAdmin):
             'fields': ('institute_address', 'institute_nip', 'comment'),
         }),
     )
-    list_display = ('user', 'institute_name', 'accomodation_required')
+    list_display = ('user', 'institute_name', '_valid_team_count',
+                    'accomodation_required')
     actions = [export_institutes, ]
 
 
@@ -118,7 +142,7 @@ class TeamAdmin(admin.ModelAdmin):
     search_fields = ('participants__first_name',
                      'participants__last_name')
     inlines = [ParticipantInline, ]
-    actions = [export_teams, ]
+    actions = [export_teams_cvs, export_teams_markdown]
 
 
 @admin.register(Participant)
