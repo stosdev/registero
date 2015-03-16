@@ -29,6 +29,9 @@ def export_teams(modeladmin, request, queryset):
         for participant in team.participants.all():
             coach_profile = team.coach.coach_profile
 
+            if coach_profile is None:
+                continue
+
             if coach_profile.accomodation_required:
                 accomodation_required = unicode(_("Yes"))
             else:
