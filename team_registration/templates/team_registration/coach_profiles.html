@@ -1,0 +1,49 @@
+{% load i18n %}
+<!DOCTYPE html>
+
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>
+      {% trans "List of teams" %}
+    </title>
+  </head>
+  <body>
+    {% for coach_profile in coach_profiles %}
+    <h1>{% trans "Institute name" %}: {{ coach_profile.institute_name }}</h1>
+    <h2>{% trans "Coach" %}: {{ coach_profile.user }} ({{ coach_profile.user.email }})</h2>
+    <dl>
+      <dt>{% trans "Institute type" %}: </dt>
+      <dd>{{ coach_profile.get_institute_type_display }}</dd>
+
+      <dt>{% trans "Accomodation required" %}:</dt>
+      <dd>{{ coach_profile.accomodation_required|yesno }}</dd>
+
+      {% if coach_profile.accomodation_required %}
+      <dt>{% trans "Institutes NIP" %}: </dt>
+      <dd>{{ coach_profile.institute_nip }}</dd>
+
+      <dt>{% trans "Institute address" %}:</dt>
+      <dd>{{ coach_profile.institute_address }}</dd>
+      {% endif %}
+
+      {% if coach_profile.comment %}
+      <dt>{% trans "Comment" %}:</dt>
+      <dd>{{ coach_profile.comment }}</dd>
+      {% endif %}
+    </dl>
+
+    {% for team in coach_profile.user.teams.all %}
+    <h3>{% trans "Team" %} {{ team.order }}</h3>
+
+    <ul>
+      {% for participant in team.participants.all %}
+      <li>{{ participant.first_name }} {{ participant.last_name }}, {% trans "Shirt size" %}: {{ participant.shirt_size }}</li>
+      {% endfor %}
+    </ul>
+
+    {% endfor %}
+    <hr />
+    {% endfor %}
+  </body>
+</html>

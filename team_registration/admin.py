@@ -4,7 +4,7 @@ from django.utils.encoding import smart_str
 from django.contrib import admin
 from django.http import HttpResponse
 from django.core.exceptions import ObjectDoesNotExist
-from django.template import RequestContext, loader
+from django.shortcuts import render_to_response
 
 from models import TeamRegistrationConfiguration, CoachProfile, Team,\
     Participant
@@ -55,38 +55,28 @@ def export_teams_cvs(modeladmin, request, queryset):
 export_teams_cvs.short_description = _("Export teams to csv")
 
 
-def get_coaches_for_teams(queryset):
-    coaches = []
+def get_coach_profiles_for_teams(queryset):
+    coach_profiles = []
     for team in queryset.all():
-        if team.coach not in coaches:
-            coaches.append(team.coach)
-    return coaches
-
-
-def export_teams_markdown(modeladmin, request, queryset):
-    response = HttpResponse(content_type='text/x-markdown')
-    response['Content-Disposition'] = 'attachment; filename=teams.md'
-
-    response.write(_("List of teams"))
-    response.write('\n')
-    response.write('=======\n')
-
-    coaches = get_coaches_for_teams(queryset)
-    template = loader.get_template('team_registration/coach_profile.md')
-
-    for coach in coaches:
-
         try:
-            coach_profile = coach.coach_profile
+            coach_profile = team.coach.coach_profile
         except ObjectDoesNotExist:
             continue
+        if coach_profile not in coach_profiles:
+            coach_profiles.append(coach_profile)
+    return coach_profiles
 
-        response.write(template.render(RequestContext(request,
-            {'coach_profile': coach_profile})))
 
+def export_teams_html(modeladmin, request, queryset):
+
+    coach_profiles = get_coach_profiles_for_teams(queryset)
+    response = render_to_response('team_registration/coach_profiles.html',
+                                  {'coach_profiles': coach_profiles},
+                                  content_type='text/html')
+    response['Content-Disposition'] = 'attachment; filename=teams.html'
     return response
 
-export_teams_markdown.short_description = _("Export teams to markdown")
+export_teams_html.short_description = _("Export teams to html")
 
 
 def export_institutes(modeladmin, request, queryset):
@@ -156,7 +146,7 @@ class TeamAdmin(admin.ModelAdmin):
     search_fields = ('participants__first_name',
                      'participants__last_name')
     inlines = [ParticipantInline, ]
-    actions = [export_teams_cvs, export_teams_markdown]
+    actions = [export_teams_cvs, export_teams_html]
 
 
 @admin.register(Participant)
