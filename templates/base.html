@@ -191,7 +191,7 @@
       <hr class="small" />
       {% get_flatpages '/sponsors/' as sponsors_pages %}
       {% for page in sponsors_pages %}
-      {{ page.content }}
+      {{ page.content|safe }}
       <hr class="small" />
       {% endfor %}
       <h3 class="text-center"><a class="btn btn-dark btn-lg" href="#contact"><i class="fa fa-usd"></i> {% trans "Become a sponsor" %}</a></h3>
