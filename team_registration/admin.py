@@ -24,6 +24,7 @@ def export_teams_cvs(modeladmin, request, queryset):
         smart_str(unicode(_("Accomodation required"))),
         smart_str(unicode(_("Coach"))),
         smart_str(unicode(_("Team order"))),
+        smart_str(unicode(_("Approved"))),
         smart_str(unicode(_("First name"))),
         smart_str(unicode(_("Last name"))),
         smart_str(unicode(_("Shirt size"))),
@@ -41,12 +42,18 @@ def export_teams_cvs(modeladmin, request, queryset):
             else:
                 accomodation_required = unicode(_("No"))
 
+            if team.approved:
+                approved = unicode(_("Yes"))
+            else:
+                approved = unicode(_("No"))
+
             writer.writerow([
                 smart_str(coach_profile.institute_name),
                 smart_str(coach_profile.get_institute_type_display()),
                 smart_str(accomodation_required),
                 smart_str(coach_profile.user),
                 smart_str(team.order),
+                smart_str(approved),
                 smart_str(participant.first_name),
                 smart_str(participant.last_name),
                 smart_str(participant.shirt_size)
@@ -70,7 +77,8 @@ def get_coach_profiles_for_teams(queryset):
 def export_teams_html(modeladmin, request, queryset):
     coach_profiles = get_coach_profiles_for_teams(queryset)
     response = render_to_response('team_registration/coach_profiles.html',
-                                  {'coach_profiles': coach_profiles},
+                                  {'coach_profiles': coach_profiles,
+                                   'selected_teams': queryset},
                                   content_type='text/html')
     response['Content-Disposition'] = 'attachment; filename=teams.html'
     return response
@@ -85,6 +93,7 @@ def export_institutes(modeladmin, request, queryset):
         smart_str(unicode(_("Institute name"))),
         smart_str(unicode(_("Institute type"))),
         smart_str(unicode(_("Number of valid teams"))),
+        smart_str(unicode(_("Number of approved teams"))),
         smart_str(unicode(_("Number of participants"))),
         smart_str(unicode(_("Accomodation required"))),
         smart_str(unicode(_("Institute address"))),
@@ -101,6 +110,7 @@ def export_institutes(modeladmin, request, queryset):
             smart_str(profile.institute_name),
             smart_str(profile.get_institute_type_display()),
             smart_str(profile.valid_team_count),
+            smart_str(profile.approved_team_count),
             smart_str(profile.participant_count),
             smart_str(accomodation_required),
             smart_str(profile.institute_address.replace('\r\n', ' ')),

@@ -34,14 +34,15 @@
     </dl>
 
     {% for team in coach_profile.user.teams.all %}
+    {% if team in selected_teams %}
     <h3>{% trans "Team" %} {{ team.order }}</h3>
-
+    <h4>{% trans "Approved" %}: {{ team.approved|yesno }}</h4>
     <ul>
       {% for participant in team.participants.all %}
       <li>{{ participant.first_name }} {{ participant.last_name }}, {% trans "Shirt size" %}: {{ participant.shirt_size }}</li>
       {% endfor %}
     </ul>
-
+    {% endif %}
     {% endfor %}
     <hr />
     {% endfor %}

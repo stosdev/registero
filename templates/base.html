@@ -78,7 +78,17 @@
         </div>
         <br/>
         <ul class="navigation-buttons">
-          <li><a href="{% url "team.views.management" %}" class="btn btn-primary btn-lg"><i class="fa fa-users"></i> {% trans "Register teams" %}</a></li>
+          {% if registration_config.registration_not_started %}
+          <div class="tooltip-wrapper" data-toggle="tooltip" data-placement="top" title="{% trans "Team registration will start on" %} {{ registration_config.registration_start|date:"d M Y" }} {{ registration_config.registration_start|time:"H:i" }}.">
+            <li><a href="#" class="btn btn-primary btn-lg" disabled="disabled"><i class="fa fa-users"></i> {% trans "Register teams" %}</a></li>
+          </div>
+          {% elif not registration_config.enabled %}
+          <div class="tooltip-wrapper" data-toggle="tooltip" data-placement="top" title="{% trans "Team registration currently disabled." %}">
+            <li><a href="#" class="btn btn-primary btn-lg" disabled="disabled"><i class="fa fa-users"></i> {% trans "Register teams" %}</a></li>
+          </div>
+          {% else %}
+          <li><a href="{% url 'team.views.management' %}" class="btn btn-primary btn-lg"><i class="fa fa-users"></i> {% trans "Register teams" %}</a></li>
+          {% endif %}
           <li><a href="#about" class="btn btn-dark btn-lg"><i class="fa fa-info"></i> {% trans "More info" %}</a></li>
         </ul>
       </div>
