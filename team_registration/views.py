@@ -12,7 +12,7 @@ from django.http import HttpResponse
 
 from models import Team, Participant
 from forms import CoachProfileModelForm, ParticipantModelForm
-from decorators import team_registration_enabled
+from decorators import team_registration_active, team_registration_unfreezed
 
 import json
 
@@ -22,7 +22,8 @@ class ParticipantCreateView(CreateView):
     template_name = 'team_registration/participant_form.html'
     success_url = reverse_lazy('team.views.management')
 
-    @method_decorator(team_registration_enabled)
+    @method_decorator(team_registration_active)
+    @method_decorator(team_registration_unfreezed)
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
         return super(ParticipantCreateView, self).dispatch(*args, **kwargs)
@@ -47,7 +48,8 @@ class ParticipantDeleteView(DeleteView):
     model = Participant
     success_url = reverse_lazy('team.views.management')
 
-    @method_decorator(team_registration_enabled)
+    @method_decorator(team_registration_active)
+    @method_decorator(team_registration_unfreezed)
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
         return super(ParticipantDeleteView, self).dispatch(*args, **kwargs)
@@ -67,7 +69,8 @@ class ParticipantUpdateView(UpdateView):
     fields = ('first_name', 'last_name', 'shirt_size')
     success_url = reverse_lazy('team.views.management')
 
-    @method_decorator(team_registration_enabled)
+    @method_decorator(team_registration_active)
+    @method_decorator(team_registration_unfreezed)
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
         return super(ParticipantUpdateView, self).dispatch(*args, **kwargs)
@@ -85,7 +88,8 @@ class TeamCreateView(RedirectView):
     pattern_name = 'team.views.management'
     permanent = False
 
-    @method_decorator(team_registration_enabled)
+    @method_decorator(team_registration_active)
+    @method_decorator(team_registration_unfreezed)
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
         return super(TeamCreateView, self).dispatch(*args, **kwargs)
@@ -107,7 +111,7 @@ class TeamManagementView(FormView):
     form_class = CoachProfileModelForm
     success_url = reverse_lazy('team.views.management')
 
-    @method_decorator(team_registration_enabled)
+    @method_decorator(team_registration_active)
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
         return super(TeamManagementView, self).dispatch(*args, **kwargs)
@@ -159,7 +163,8 @@ class TeamDeleteView(DeleteView):
     model = Team
     success_url = reverse_lazy('team.views.management')
 
-    @method_decorator(team_registration_enabled)
+    @method_decorator(team_registration_active)
+    @method_decorator(team_registration_unfreezed)
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
         return super(TeamDeleteView, self).dispatch(*args, **kwargs)
@@ -185,7 +190,7 @@ class TeamDeleteView(DeleteView):
 
 class TeamReorderView(View):
 
-    @method_decorator(team_registration_enabled)
+    @method_decorator(team_registration_active)
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
         return super(TeamReorderView, self).dispatch(*args, **kwargs)

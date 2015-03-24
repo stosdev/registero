@@ -5,6 +5,7 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 
 from django.core.urlresolvers import reverse
+from django.core.exceptions import ValidationError
 
 from django.db import models
 
@@ -13,8 +14,10 @@ from solo.models import SingletonModel
 from datetime import timedelta
 
 
-def ten_days_from_now():
-        return timezone.now() + timedelta(days=10)
+def days_from_now(n):
+    def fun():
+        return timezone.now() + timedelta(days=n)
+    return fun
 
 
 class TeamRegistrationConfiguration(SingletonModel):
@@ -24,10 +27,15 @@ class TeamRegistrationConfiguration(SingletonModel):
                                   default=False)
     enabled.help_text = _("If set to false the team registration is disabled,\
                           now matter the start and end settings below.")
-    start = models.DateTimeField(_("Team registration start"),
-                                 default=timezone.now)
-    end = models.DateTimeField(_("Team registration end"),
-                               default=ten_days_from_now)
+    registration_start = models.DateTimeField(_("Team registration start"),
+                                              default=timezone.now)
+    registration_freeze = models.DataTimeField(_("Team registration freeze start"),
+                                               default=days_from_now(25))
+    registration_freeze.help_text = _("After team freeze the team participants \
+                                      cannot be changed, but the teams can \
+                                      still be reordered")
+    registration_end = models.DateTimeField(_("Team registration end"),
+                                            default=days_from_now(30))
 
     @property
     def registration_active(self):
@@ -36,14 +44,29 @@ class TeamRegistrationConfiguration(SingletonModel):
             and timezone.now() <= self.end
 
     @property
-    def not_started(self):
+    def registration_not_started(self):
         """Return true if the registration is yet to start."""
         return self.enabled and timezone.now() <= self.start
 
     @property
-    def has_ended(self):
+    def registration_has_ended(self):
         """Return true if the registration has ended."""
         return self.enabled and self.end <= timezone.now()
+
+    @property
+    def registration_is_freezed(self):
+        return self.registration_start <= self.team_freeze \
+            and timezone.now() > self.team_freeze
+
+    def clean(self):
+        if not self.registration_start <= self.registration_freeze or \
+           not self.registration_freeze <= self.registration_end:
+            raise ValidationError({
+                'registration_freeze': _(
+                    "The team registration freeze time \
+                    should be between the registration start and end date.")
+            })
+        return super(TeamRegistrationConfiguration, self).clean()
 
     class Meta:
         verbose_name = _("Team registration configuration")
@@ -99,7 +122,7 @@ class CoachProfile(models.Model):
         for team in self.user.teams.all():
             if team.participant_count >= 2:
                 count += 1
-        return count
+                return count
     _valid_team_count.short_description = _("Number of valid teams")
     valid_team_count = property(_valid_team_count)
 
@@ -111,12 +134,13 @@ class CoachProfile(models.Model):
 
 
 class Team(models.Model):
-    """Team model consisting of the importance of this team for the given
-    coach (order), and a foreign key to the coach model."""
+    """A model representing the team."""
 
     order = models.IntegerField(_("Order"))
     coach = models.ForeignKey(User, verbose_name=_("Coach"),
                               related_name='teams')
+    selected = models.BooleanField(_("Selected"), default=False)
+    selected.help_text = _("Mark true if the team is selected for the contest.")
 
     class Meta:
         verbose_name = _("Team")
