@@ -40,24 +40,25 @@ class TeamRegistrationConfiguration(SingletonModel):
                                             default=thirty_days_from_now)
 
     @property
-    def registration_is_active(self):
+    def registration_is_active(self):  # TODO: is_registration_active
         """Return true if registration is active."""
         return self.enabled and self.registration_start <= timezone.now() \
             and timezone.now() <= self.registration_end
 
     @property
-    def registration_not_started(self):
+    def registration_not_started(self):  # TODO: is_registration_started
         """Return true if the registration is yet to start."""
         return self.enabled and timezone.now() <= self.registration_start
 
     @property
-    def registration_has_ended(self):
+    def registration_has_ended(self):  # TODO: is_registration_finished
         """Return true if the registration has ended."""
         return self.enabled and self.registration_end <= timezone.now()
 
     @property
-    def registration_is_freezed(self):
-        return self.registration_freeze <= timezone.now()
+    def registration_is_freezed(self):  # TODO: is_registration_frozen
+        return self.registration_freeze <= timezone.now() \
+            and timezone.now() <= self.registration_end
 
     def clean(self):
         if not self.registration_start <= self.registration_end:

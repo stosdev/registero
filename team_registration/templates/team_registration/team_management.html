@@ -4,6 +4,19 @@
 {% load i18n %}
 
 {% block content %}
+
+{% if registration_config.registration_is_freezed %}
+<div class="alert alert-warning" role="alert">
+  {% trans "Registration has been frozen. You cannot register new teams or participants but you can still modify the order of your teams." %}
+</div>
+{% endif %}
+
+{% if registration_config.registration_has_ended %}
+<div class="alert alert-warning" role="alert">
+  {% trans "Registration has ended, below you can check which teams were approved for the contest." %}
+</div>
+{% endif %}
+
 <h2 class="text-center">{% trans "General information" %}</h2>
 
 {% if registration_config.registration_is_active %}
@@ -33,6 +46,7 @@
 
 {% if coach_profile.is_filled %}
 <h2 class="text-center">{% trans "Teams" %}</h2>
+
 <p>{% trans "The final contest team list will be filled by choosing teams from each institutes team list. The order in which you provide the teams matters. After you create your teams please drag-and-drop them into an order based on their importance." %}</p>
 <div class="teams-container">
 {% for team in team_list %}
