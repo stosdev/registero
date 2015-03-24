@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-24 15:00+0100\n"
+"POT-Creation-Date: 2015-03-24 15:34+0100\n"
 "PO-Revision-Date: 2015-02-06 14:31+01\n"
 "Last-Translator: Paweł Jan Czochański <czochanski@gmail.com>\n"
 "Language-Team: pl\n"
@@ -54,11 +54,11 @@ msgstr "Do góry"
 msgid "About"
 msgstr "O turnieju"
 
-#: templates/base.html:56 templates/base.html.py:108
+#: templates/base.html:56 templates/base.html.py:118
 msgid "Details"
 msgstr "Cechy turnieju"
 
-#: templates/base.html:59 templates/base.html.py:170
+#: templates/base.html:59 templates/base.html.py:180
 msgid "Sponsors"
 msgstr "Sponsorzy"
 
@@ -79,20 +79,29 @@ msgstr "Podlaski Turniej<br />w Programowaniu Zespołowym"
 msgid "Register a team and take part!"
 msgstr "Zarejestruj drużynę i weź udział!"
 
-#: templates/base.html:81 templates/registration/activation_complete.html:9
+#: templates/base.html:82
+msgid "Team registration will start on"
+msgstr "Rejestracja drużyn rozpocznie się"
+
+#: templates/base.html:83 templates/base.html.py:87 templates/base.html:90
+#: templates/registration/activation_complete.html:9
 #: templates/usermenu.html:16
 msgid "Register teams"
 msgstr "Zarejestruj drużyny"
 
-#: templates/base.html:82
+#: templates/base.html:86
+msgid "Team registration currently disabled."
+msgstr "Rejestracja drużyn tymczasowo wyłączona."
+
+#: templates/base.html:92
 msgid "More info"
 msgstr "Więcej informacji"
 
-#: templates/base.html:92
+#: templates/base.html:102
 msgid "Podlachia Team Programming Contest"
 msgstr "Podlaski Turniej w Programowaniu Zespołowym"
 
-#: templates/base.html:93
+#: templates/base.html:103
 msgid ""
 "An annual programming event created by, and organized at the Białystok "
 "University of Technology Information Technology Faculty on which 30 two to "
@@ -106,23 +115,23 @@ msgstr ""
 "Białostockiej w dwóch kategoriach wiekowych - uczniów szkół średnich i "
 "studentów."
 
-#: templates/base.html:94
+#: templates/base.html:104
 msgid "Regulations"
 msgstr "Regulamin"
 
-#: templates/base.html:118
+#: templates/base.html:128
 msgid "Teams"
 msgstr "Drużyny"
 
-#: templates/base.html:120
+#: templates/base.html:130
 msgid "Teams can consist of from two to three."
 msgstr "Drużyny mogą składać się z dwóch do trzech osób."
 
-#: templates/base.html:130
+#: templates/base.html:140
 msgid "Six winning teams"
 msgstr "Sześć zwycięskich drużyn"
 
-#: templates/base.html:132
+#: templates/base.html:142
 msgid ""
 "Three winning places in two age categories - school level and university "
 "level."
@@ -130,11 +139,11 @@ msgstr ""
 "Po trzy miejsca w dwóch kategoriach wiekowych - uczniowiowskiej i "
 "studenckiej."
 
-#: templates/base.html:142
+#: templates/base.html:152
 msgid "Accommodation"
 msgstr "Zakwaterowanie"
 
-#: templates/base.html:144
+#: templates/base.html:154
 msgid ""
 "For arrival teams for an additional charge an accommodation is provided in "
 "Białystok University of Technology, and Białystok University dorms"
@@ -142,11 +151,11 @@ msgstr ""
 "Dla przyjezdnych drużyn za dopłatą zapewniamy zakwaterowanie <br />w "
 "akademikach Politechniki Białostockiej i Uniwersytetu <br />w Białymstoku."
 
-#: templates/base.html:154
+#: templates/base.html:164
 msgid "Convinient time and place"
 msgstr "Dogodne miejsce i termin"
 
-#: templates/base.html:156
+#: templates/base.html:166
 msgid ""
 "21-22 od March (Hooky Day) is the perfect time to run off from classes to "
 "Białystok University of Technology Information Technology Faculty building "
@@ -155,11 +164,11 @@ msgstr ""
 "21-22 marca (dzień wagarowicza) to idealny termin, by opuścić zajęcia ruszyć "
 "na Wydział Informatyki Politechniki Białostockiej i zdobyć laur zwycięzcy."
 
-#: templates/base.html:177
+#: templates/base.html:187
 msgid "Become a sponsor"
 msgstr "Zostań sponsorem"
 
-#: templates/base.html:185
+#: templates/base.html:195
 msgctxt "Plural"
 msgid "News"
 msgstr "Aktualności"
@@ -361,11 +370,5 @@ msgstr "Zmień hasło"
 msgid "Log out"
 msgstr "Wyloguj"
 
-#~ msgid "Team registration will start on"
-#~ msgstr "Rejestracja drużyn rozpocznie się"
-
 #~ msgid "Team registration has ended on"
 #~ msgstr "Rejstracja drużyn zakończyła się"
-
-#~ msgid "Team registration currently disabled."
-#~ msgstr "Rejestracja drużyn tymczasowo wyłączona."
