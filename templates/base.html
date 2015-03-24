@@ -78,7 +78,7 @@
         </div>
         <br/>
         <ul class="navigation-buttons">
-          {% if registration_config.registration_not_started %}
+          {% if registration_config.is_registration_started %}
           <div class="tooltip-wrapper" data-toggle="tooltip" data-placement="top" title="{% trans "Team registration will start on" %} {{ registration_config.registration_start|date:"d M Y" }} {{ registration_config.registration_start|time:"H:i" }}.">
             <li><a href="#" class="btn btn-primary btn-lg" disabled="disabled"><i class="fa fa-users"></i> {% trans "Register teams" %}</a></li>
           </div>

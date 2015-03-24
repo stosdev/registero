@@ -10,7 +10,7 @@ def team_registration_active(function):
 
     def wrap(*args, **kwargs):
         config = TeamRegistrationConfiguration.get_solo()
-        if not config.registration_is_active:
+        if not config.is_registration_active:
             raise PermissionDenied()
         return function(*args, **kwargs)
 
@@ -19,12 +19,12 @@ def team_registration_active(function):
     return wrap
 
 
-def team_registration_unfreezed(function):
+def team_registration_unfrozen(function):
     """Checks if the team registration is not freezed, raises an exception if is."""
 
     def wrap(*args, **kwargs):
         config = TeamRegistrationConfiguration.get_solo()
-        if config.registration_is_freezed:
+        if config.is_registration_frozen:
             raise PermissionDenied()
         return function(*args, **kwargs)
 
