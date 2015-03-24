@@ -14,10 +14,12 @@ from solo.models import SingletonModel
 from datetime import timedelta
 
 
-def days_from_now(n):
-    def fun():
-        return timezone.now() + timedelta(days=n)
-    return fun
+def thirty_days_from_now():
+    return timezone.now() + timedelta(days=30)
+
+
+def twenty_five_days_from_now():
+    return timezone.now() + timedelta(days=25)
 
 
 class TeamRegistrationConfiguration(SingletonModel):
@@ -29,36 +31,41 @@ class TeamRegistrationConfiguration(SingletonModel):
                           now matter the start and end settings below.")
     registration_start = models.DateTimeField(_("Team registration start"),
                                               default=timezone.now)
-    registration_freeze = models.DataTimeField(_("Team registration freeze start"),
-                                               default=days_from_now(25))
+    registration_freeze = models.DateTimeField(_("Team registration freeze start"),
+                                               default=twenty_five_days_from_now)
     registration_freeze.help_text = _("After team freeze the team participants \
                                       cannot be changed, but the teams can \
-                                      still be reordered")
+                                      still be reordered.")
     registration_end = models.DateTimeField(_("Team registration end"),
-                                            default=days_from_now(30))
+                                            default=thirty_days_from_now)
 
     @property
-    def registration_active(self):
+    def registration_is_active(self):
         """Return true if registration is active."""
-        return self.enabled and self.start <= timezone.now() \
-            and timezone.now() <= self.end
+        return self.enabled and self.registration_start <= timezone.now() \
+            and timezone.now() <= self.registration_end
 
     @property
     def registration_not_started(self):
         """Return true if the registration is yet to start."""
-        return self.enabled and timezone.now() <= self.start
+        return self.enabled and timezone.now() <= self.registration_start
 
     @property
     def registration_has_ended(self):
         """Return true if the registration has ended."""
-        return self.enabled and self.end <= timezone.now()
+        return self.enabled and self.registration_end <= timezone.now()
 
     @property
     def registration_is_freezed(self):
-        return self.registration_start <= self.team_freeze \
-            and timezone.now() > self.team_freeze
+        return self.registration_freeze <= timezone.now()
 
     def clean(self):
+        if not self.registration_start <= self.registration_end:
+            raise ValidationError({
+                'registration_end': _(
+                    "The team registration end time \
+                    should be after the registration start time.")
+            })
         if not self.registration_start <= self.registration_freeze or \
            not self.registration_freeze <= self.registration_end:
             raise ValidationError({
@@ -72,7 +79,7 @@ class TeamRegistrationConfiguration(SingletonModel):
         verbose_name = _("Team registration configuration")
 
     def __unicode__(self):
-        return u"Team Registration configuration"
+        return u"Team registration configuration"
 
 
 class CoachProfile(models.Model):
@@ -126,6 +133,16 @@ class CoachProfile(models.Model):
     _valid_team_count.short_description = _("Number of valid teams")
     valid_team_count = property(_valid_team_count)
 
+    def _approved_team_count(self):
+        return self.user.teams.filter(approved=True).count()
+    _approved_team_count.short_description = _("Number of approved teams")
+    approved_team_count = property(_approved_team_count)
+
+    @property
+    def is_filled(self):
+        return self.institute_name is not None \
+            and self.institute_type is not None
+
     def get_absolute_url(self):
         return reverse('team.views.management', args=())
 
@@ -139,8 +156,8 @@ class Team(models.Model):
     order = models.IntegerField(_("Order"))
     coach = models.ForeignKey(User, verbose_name=_("Coach"),
                               related_name='teams')
-    selected = models.BooleanField(_("Selected"), default=False)
-    selected.help_text = _("Mark true if the team is selected for the contest.")
+    approved = models.BooleanField(_("Approved"), default=False)
+    approved.help_text = _("Mark true if the team is approved for the contest.")
 
     class Meta:
         verbose_name = _("Team")

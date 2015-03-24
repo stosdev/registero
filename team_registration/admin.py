@@ -68,14 +68,12 @@ def get_coach_profiles_for_teams(queryset):
 
 
 def export_teams_html(modeladmin, request, queryset):
-
     coach_profiles = get_coach_profiles_for_teams(queryset)
     response = render_to_response('team_registration/coach_profiles.html',
                                   {'coach_profiles': coach_profiles},
                                   content_type='text/html')
     response['Content-Disposition'] = 'attachment; filename=teams.html'
     return response
-
 export_teams_html.short_description = _("Export teams to html")
 
 
@@ -131,7 +129,7 @@ class CoachProfileAdmin(admin.ModelAdmin):
         }),
     )
     list_display = ('user', 'institute_name', '_valid_team_count',
-                    'accomodation_required')
+                    '_approved_team_count', 'accomodation_required')
     actions = [export_institutes, ]
 
 
@@ -142,7 +140,7 @@ class ParticipantInline(admin.TabularInline):
 
 @admin.register(Team)
 class TeamAdmin(admin.ModelAdmin):
-    list_display = ('coach', 'order', 'participant_count')
+    list_display = ('coach', 'order', 'participant_count', 'approved')
     search_fields = ('participants__first_name',
                      'participants__last_name')
     inlines = [ParticipantInline, ]

@@ -10,7 +10,7 @@ from django.core.urlresolvers import reverse_lazy
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponse
 
-from models import Team, Participant
+from models import Team, Participant, TeamRegistrationConfiguration
 from forms import CoachProfileModelForm, ParticipantModelForm
 from decorators import team_registration_active, team_registration_unfreezed
 
@@ -111,7 +111,6 @@ class TeamManagementView(FormView):
     form_class = CoachProfileModelForm
     success_url = reverse_lazy('team.views.management')
 
-    @method_decorator(team_registration_active)
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
         return super(TeamManagementView, self).dispatch(*args, **kwargs)
@@ -120,6 +119,12 @@ class TeamManagementView(FormView):
         context = super(TeamManagementView,
                         self).get_context_data(*args, **kwargs)
         context['team_list'] = self.request.user.teams.all()
+        try:
+            coach_profile = self.request.user.coach_profile
+        except ObjectDoesNotExist:
+            coach_profile = None
+        context['coach_profile'] = coach_profile
+        context['registration_config'] = TeamRegistrationConfiguration.get_solo()
         return context
 
     def get_initial(self, *args, **kwargs):
