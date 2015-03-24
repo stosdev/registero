@@ -6,6 +6,8 @@ from django.http import HttpResponse
 from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render_to_response
 
+from django.template.defaultfilters import yesno
+
 from models import TeamRegistrationConfiguration, CoachProfile, Team,\
     Participant
 
@@ -37,23 +39,13 @@ def export_teams_cvs(modeladmin, request, queryset):
             except ObjectDoesNotExist:
                 continue
 
-            if coach_profile.accomodation_required:
-                accomodation_required = unicode(_("Yes"))
-            else:
-                accomodation_required = unicode(_("No"))
-
-            if team.approved:
-                approved = unicode(_("Yes"))
-            else:
-                approved = unicode(_("No"))
-
             writer.writerow([
                 smart_str(coach_profile.institute_name),
                 smart_str(coach_profile.get_institute_type_display()),
-                smart_str(accomodation_required),
+                smart_str(yesno(coach_profile.accomodation_required)),
                 smart_str(coach_profile.user),
                 smart_str(team.order),
-                smart_str(approved),
+                smart_str(yesno(team.approved)),
                 smart_str(participant.first_name),
                 smart_str(participant.last_name),
                 smart_str(participant.shirt_size)
@@ -101,18 +93,13 @@ def export_institutes(modeladmin, request, queryset):
         smart_str(unicode(_("Comment"))),
     ])
     for profile in queryset.all():
-        if profile.accomodation_required:
-            accomodation_required = unicode(_("Yes"))
-        else:
-            accomodation_required = unicode(_("No"))
-
         writer.writerow([
             smart_str(profile.institute_name),
             smart_str(profile.get_institute_type_display()),
             smart_str(profile.valid_team_count),
             smart_str(profile.approved_team_count),
             smart_str(profile.participant_count),
-            smart_str(accomodation_required),
+            smart_str(yesno(profile.accomodation_required)),
             smart_str(profile.institute_address.replace('\r\n', ' ')),
             smart_str(profile.institute_nip),
             smart_str(profile.comment.replace('\r\n', ' '))
