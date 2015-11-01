@@ -148,7 +148,7 @@ class TeamAdmin(admin.ModelAdmin):
 class ParticipantAdmin(admin.ModelAdmin):
     fieldsets = (
         (None, {
-            'fields': (('first_name', 'last_name'), 'shirt_size'),
+            'fields': (('first_name', 'last_name'), 'shirt_size', 'team'),
         }),
     )
     list_display = ('first_name', 'last_name', 'team', 'shirt_size')
