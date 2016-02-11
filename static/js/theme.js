@@ -1,4 +1,8 @@
 
+$("body").click(function(e) {
+  $("#sidebar-wrapper").removeClass("active");
+});
+
 // Closes the sidebar menu
 $("#menu-close").click(function(e) {
   e.preventDefault();
@@ -8,6 +12,7 @@ $("#menu-close").click(function(e) {
 // Opens the sidebar menu
 $("#menu-toggle").click(function(e) {
   e.preventDefault();
+  e.stopPropagation();
   $("#sidebar-wrapper").toggleClass("active");
 });
 
