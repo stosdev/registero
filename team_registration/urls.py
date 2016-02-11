@@ -5,7 +5,7 @@ from views import TeamManagementView, TeamCreateView, TeamDeleteView, \
     ParticipantUpdateView
 
 
-urlpatterns = patterns('',
+urlpatterns = [
     url(r'^$', TeamManagementView.as_view(),
         name='team.views.management'),
     url(r'^new/$', TeamCreateView.as_view(),
@@ -21,6 +21,4 @@ urlpatterns = patterns('',
         ParticipantDeleteView.as_view(), name='participant.views.delete'),
     url(r'^(?P<team_pk>\d+)/participant/(?P<pk>\d+)/edit/$',
         ParticipantUpdateView.as_view(), name='participant.views.edit'),
-
-
-)
+]

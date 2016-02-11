@@ -39,10 +39,7 @@ except ImportError:
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-TEMPLATE_DEBUG = True
-
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -76,10 +73,6 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'registero.urls'
 
 WSGI_APPLICATION = 'registero.wsgi.application'
-
-TEMPLATE_DIRS = (
-    p('templates'),
-)
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
@@ -146,3 +139,26 @@ DEFAULT_FROM_EMAIL = 'test@example.com'
 SERVER_EMAIL = 'test@example.com'
 EMAIL_HOST_PASSWORD = 'password'
 EMAIL_USE_TLS = True
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [
+            p('templates'),
+        ],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                # Insert your TEMPLATE_CONTEXT_PROCESSORS here or use this
+                # list if you haven't customized them:
+                'django.contrib.auth.context_processors.auth',
+                'django.template.context_processors.debug',
+                'django.template.context_processors.i18n',
+                'django.template.context_processors.media',
+                'django.template.context_processors.static',
+                'django.template.context_processors.tz',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
