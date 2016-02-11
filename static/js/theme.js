@@ -35,3 +35,8 @@ $(function() {
     }}
   });
 });
+
+// Autofocus the first input on the page
+$(document).ready(function(){
+  $('input:visible:enabled:first').focus();
+});
