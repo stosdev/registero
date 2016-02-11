@@ -112,7 +112,7 @@ msgstr ""
 "Coroczne wydarzenie programistyczne odbywające się na Wydziale Informatyki "
 "Politechniki Białostockiej. Trzydzieści dwu- lub trzyosobowych drużyn "
 "rywalizuje ze sobą o puchar Dziekana Wydziału Informatyki Politechniki "
-"Białostockiej w dwóch kategoriach wiekowych - uczniów szkół średnich i "
+"Białostockiej w dwóch kategoriach wiekowych – uczniów szkół średnich i "
 "studentów."
 
 #: templates/base.html:104
