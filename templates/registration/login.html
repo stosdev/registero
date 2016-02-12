@@ -10,6 +10,7 @@
   {% bootstrap_form form %}
   {% buttons %}
   <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> {% trans "Submit" %}</button>
+  <input name="next" type="hidden" value="{{next}}">
   {% endbuttons %}
 </form>
 <h4>{% trans "Not a member?" %} <a href="{% url "registration_register" %}">{% trans "Register" %}.</a></h4>
