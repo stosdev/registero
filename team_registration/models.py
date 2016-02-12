@@ -46,7 +46,7 @@ class TeamRegistrationConfiguration(SingletonModel):
             and timezone.now() <= self.registration_end
 
     @property
-    def is_registration_started(self):
+    def is_before_registration_started(self):
         """Return true if the registration is yet to start."""
         return self.enabled and timezone.now() <= self.registration_start
 
@@ -57,6 +57,7 @@ class TeamRegistrationConfiguration(SingletonModel):
 
     @property
     def is_registration_frozen(self):
+        """Return true if the registration is frozen."""
         return self.registration_freeze <= timezone.now() \
             and timezone.now() <= self.registration_end
 

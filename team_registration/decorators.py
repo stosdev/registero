@@ -6,7 +6,7 @@ from models import TeamRegistrationConfiguration
 
 
 def team_registration_active(function):
-    """Checks if team registration is active, if not raises an exception."""
+    """Check if team registration is active, if not raise an exception."""
 
     def wrap(*args, **kwargs):
         config = TeamRegistrationConfiguration.get_solo()
@@ -20,7 +20,8 @@ def team_registration_active(function):
 
 
 def team_registration_unfrozen(function):
-    """Checks if the team registration is not freezed, raises an exception if is."""
+    """Check if the team registration is not frozen,
+    raise an exception if is."""
 
     def wrap(*args, **kwargs):
         config = TeamRegistrationConfiguration.get_solo()

@@ -12,7 +12,7 @@
 {% endif %}
 
 {% if registration_config.is_registration_finished %}
-<div class="alert alert-warning" role="alert">
+<div class="alert alert-danger" role="alert">
   {% trans "Registration has ended, below you can check which teams were approved for the contest." %}
 </div>
 {% endif %}
@@ -33,14 +33,18 @@
   <dd>{{ coach_profile.institute_name }}</dd>
   <dt>{% trans "Institute type" %}:</dt>
   <dd>{{ coach_profile.get_institute_type_display }}</dd>
+  {% if coach_profile.accomodation_required %}
   <dt>{% trans "Accomodation required" %}:</dt>
   <dd>{{ coach_profile.accomodation_required|yesno }}</dd>
   <dt>{% trans "Institute address" %}:</dt>
   <dd>{{ coach_profile.institute_address }}</dd>
   <dt>{% trans "Institute nip" %}:</dt>
   <dd>{{ coach_profile.institute_nip }}</dd>
+  {% endif %}
+  {% if coach_profile.comment %}
   <dt>{% trans "Comment" %}:</dt>
   <dd>{{ coach_profile.comment }}</dd>
+  {% endif %}
 </dl>
 {% endif %}
 
@@ -53,7 +57,7 @@
 <div class="panel panel-default" data-id="{{ team.pk }}">
 
   <div class="panel-heading">
-    {% if not registration_config.is_registration_frozen %}
+    {% if not registration_config.is_registration_frozen and not registration_config.is_registration_finished %}
     <a href="{% url 'team.views.delete' team.pk %}" class="btn btn-danger pull-right"><i class="fa fa-trash-o"></i> {% trans "Remove" %}</a>
     {% endif %}
     <h5>{% trans "Team" %} <span class="team-order">{{ team.order }}</span></h5>
@@ -94,7 +98,7 @@
           <td>{{ participant.last_name }}</td>
           <td>{{ participant.shirt_size }}</td>
           <td class="text-right">
-            {% if not registration_config.is_registration_frozen %}
+            {% if not registration_config.is_registration_frozen and not registration_config.is_registration_finished %}
             <div class="btn-group" role="group">
               <a href="{% url 'participant.views.edit' team.pk participant.pk %}" class="btn btn-xs btn-default"><i class="fa fa-pencil"></i> {% trans "Edit" %}</a>
               <a href="{% url 'participant.views.delete' team.pk participant.pk %}" class="btn btn-xs btn-default"><i class="fa fa-trash-o"></i> {% trans "Remove" %}</a>
@@ -110,7 +114,7 @@
     <h4 class="text-center">{% trans "No participants in this team yet." %}</h4>
     {% endif %}
 
-    {% if team.participant_count < 3 and not registration_config.is_registration_frozen %}
+    {% if team.participant_count < 3 and not registration_config.is_registration_frozen and not registration_config.is_registration_finished %}
     <a href="{% url 'participant.views.create' team.pk %}" class="btn btn-primary btn-block"><i class="fa fa-user"></i> {% trans "Add new participant" %}</a>
     {% endif %}
 
@@ -118,12 +122,13 @@
 
 </div>
 {% empty %}
-{% if not registration_config.is_registration_frozen %}
-<h3 class="text-center">{% trans "No teams to show, you can add teams using the button below." %}</h3>
+<h3 class="text-center">{% trans "No teams to show." %}</h3>
+{% if not registration_config.is_registration_frozen and not registration_config.is_registration_finished %}
+<h3 class="text-center">{% trans "You can add teams using the button below." %}</h3>
 {% endif %}
 {% endfor %}
 </div>
-{% if not registration_config.is_registration_frozen %}
+{% if not registration_config.is_registration_frozen and not registration_config.is_registration_finished %}
 <a href="{% url 'team.views.create' %}" class="btn btn-primary btn-block"><i class="fa fa-plus"></i> {% trans "Add new team" %}</a>
 {% endif %}
 {% endif %}

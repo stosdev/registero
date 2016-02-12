@@ -327,7 +327,7 @@ msgid ""
 "Registration has ended, below you can check which teams were approved for "
 "the contest."
 msgstr ""
-"Rejestracja zostałą zakończona. Poniżej znajdziesz informacje o tym które "
+"Rejestracja została zakończona. Poniżej znajdziesz informacje o tym, które "
 "drużyny zostały zaakceptowane i wezmą udział w turnieju."
 
 #: team_registration/templates/team_registration/team_management.html:20

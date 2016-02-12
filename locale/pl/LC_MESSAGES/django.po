@@ -136,7 +136,7 @@ msgid ""
 "Three winning places in two age categories - school level and university "
 "level."
 msgstr ""
-"Po trzy miejsca w dwóch kategoriach wiekowych - uczniowiowskiej i "
+"Po trzy miejsca w dwóch kategoriach wiekowych – uczniowiowskiej i "
 "studenckiej."
 
 #: templates/base.html:152
