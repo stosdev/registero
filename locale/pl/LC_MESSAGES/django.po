@@ -218,7 +218,7 @@ msgstr "Dziękujemy"
 
 #: templates/registration/activation_email.txt:10
 msgid "The Podlachia Team Programming Contest organizers"
-msgstr "Podlaski Turniej w Programowaniu Zespołowym"
+msgstr "Organizatorzy Podlaskiego Turnieju w Programowaniu Zespołowym"
 
 #: templates/registration/activation_email_subject.txt:3
 msgid "Podlachia Team Programming Contest registration details"
@@ -243,7 +243,7 @@ msgstr "Nie masz konta?"
 
 #: templates/registration/login.html:15 templates/usermenu.html:30
 msgid "Register"
-msgstr "Zarejestruj"
+msgstr "Zarejestruj się"
 
 #: templates/registration/login.html:16
 msgid "I forgot my credentials."
@@ -255,7 +255,7 @@ msgstr "Wylogowany"
 
 #: templates/registration/logout.html:9
 msgid "Thanks for spending some quality time with the Web site today."
-msgstr "Dzięki za spędzenie czasu na naszej stronie."
+msgstr "Dziękujemy za spędzenie czasu na naszej stronie."
 
 #: templates/registration/logout.html:10
 msgid "Log in again"
@@ -264,7 +264,7 @@ msgstr "Zaloguj ponownie"
 #: templates/registration/password_change_done.html:8
 #: templates/registration/password_change_form.html:7
 msgid "Password change"
-msgstr "Zmniana hasła"
+msgstr "Zmiana hasła"
 
 #: templates/registration/password_change_done.html:9
 msgid "Your password was changed."
