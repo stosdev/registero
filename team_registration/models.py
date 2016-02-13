@@ -25,19 +25,23 @@ def twenty_five_days_from_now():
 class TeamRegistrationConfiguration(SingletonModel):
     """Class for storing global registration configuration."""
 
-    enabled = models.BooleanField(_("Team registration enabled"),
-                                  default=False)
-    enabled.help_text = _("If set to false the team registration is disabled,\
-                          now matter the start and end settings below.")
-    registration_start = models.DateTimeField(_("Team registration start"),
-                                              default=timezone.now)
-    registration_freeze = models.DateTimeField(_("Team registration freeze start"),
-                                               default=twenty_five_days_from_now)
-    registration_freeze.help_text = _("After team freeze the team participants \
-                                      cannot be changed, but the teams can \
-                                      still be reordered.")
-    registration_end = models.DateTimeField(_("Team registration end"),
-                                            default=thirty_days_from_now)
+    enabled = models.BooleanField(
+        _("Team registration enabled"), default=False)
+    enabled.help_text = _(
+        "If set to false the team registration is disabled,"
+        " now matter the start and end settings below.")
+
+    registration_start = models.DateTimeField(
+        _("Team registration start"), default=timezone.now)
+
+    registration_freeze = models.DateTimeField(
+        _("Team registration freeze start"), default=twenty_five_days_from_now)
+    registration_freeze.help_text = _(
+        "After team freeze the team participants cannot be changed,"
+        " but the teams can still be reordered.")
+
+    registration_end = models.DateTimeField(
+        _("Team registration end"), default=thirty_days_from_now)
 
     @property
     def is_registration_active(self):
@@ -95,26 +99,36 @@ class CoachProfile(models.Model):
         (SCHOOL, _("School")),
     )
 
-    user = models.OneToOneField(User, related_name='coach_profile')
-    institute_name = models.CharField(_("Institute name"), max_length=255)
+    user = models.OneToOneField(
+        User, related_name='coach_profile')
+
+    institute_name = models.CharField(
+        _("Institute name"), max_length=255)
+
     institute_name.help_text = _(
         "The name of the school/university providing teams for this coach.")
-    institute_type = models.CharField(_("Institute type"), max_length=1,
-                                      choices=INSTITUTE_TYPES)
-    accomodation_required = models.BooleanField(_("Accomodation required"),
-                                                default=False)
+    institute_type = models.CharField(
+        _("Institute type"), max_length=1, choices=INSTITUTE_TYPES)
+
+    accomodation_required = models.BooleanField(
+        _("Accomodation required"), default=False)
     accomodation_required.help_text = _(
         "Check if teams require finding a place to sleep.")
-    institute_address = models.TextField(_("Institute address"),
-                                         blank=True, null=True)
+
+    institute_address = models.TextField(
+        _("Institute address"), blank=True, null=True)
     institute_address.help_text = _(
         "The address of the institute provided above.")
-    institute_nip = models.CharField(_("Institutes NIP"), max_length=10,
-                                     blank=True, null=True)
+
+    institute_nip = models.CharField(
+        _("Institutes NIP"), max_length=10, blank=True, null=True)
     institute_nip.help_text = _(
         "The institutes NIP number used for the accomodation invoice.")
-    comment = models.TextField(_("Comment"), blank=True, null=True)
-    comment.help_text = _("Share any additional comments on your teams.")
+
+    comment = models.TextField(
+        _("Comment"), blank=True, null=True)
+    comment.help_text = _(
+        "Share any additional comments on your teams.")
 
     class Meta:
         verbose_name = _("Coach Profile")
@@ -156,10 +170,13 @@ class Team(models.Model):
     """A model representing the team."""
 
     order = models.IntegerField(_("Order"))
-    coach = models.ForeignKey(User, verbose_name=_("Coach"),
-                              related_name='teams')
+
+    coach = models.ForeignKey(
+        User, verbose_name=_("Coach"), related_name='teams')
+
     approved = models.BooleanField(_("Approved"), default=False)
-    approved.help_text = _("Mark true if the team is approved for the contest.")
+    approved.help_text = _(
+        "Mark true if the team is approved for the contest.")
 
     class Meta:
         verbose_name = _("Team")
@@ -193,12 +210,17 @@ class Participant(models.Model):
         (EXTRA_LARGE, _("Extra large"))
     )
 
-    first_name = models.CharField(_("First name"), max_length=255)
-    last_name = models.CharField(_("Last name"), max_length=255)
-    team = models.ForeignKey(Team, verbose_name=_("Team"),
-                             related_name='participants')
-    shirt_size = models.CharField(_("Shirt size"), max_length=2,
-                                  choices=SHIRT_SIZES, default=MEDIUM)
+    first_name = models.CharField(
+        _("First name"), max_length=255)
+
+    last_name = models.CharField(
+        _("Last name"), max_length=255)
+
+    team = models.ForeignKey(
+        Team, verbose_name=_("Team"), related_name='participants')
+
+    shirt_size = models.CharField(
+        _("Shirt size"), max_length=2, choices=SHIRT_SIZES, default=MEDIUM)
 
     class Meta:
         verbose_name = _("Participant")
