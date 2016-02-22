@@ -133,11 +133,6 @@ msgid "Team registration enabled"
 msgstr "Rejestracja drużyn aktywna"
 
 #: team_registration/models.py:31
-#, fuzzy
-#| msgid ""
-#| "If set to false the team registration is "
-#| "disabled,                          now matter the start and end settings "
-#| "below."
 msgid ""
 "If set to false the team registration is disabled, now matter the start and "
 "end settings below."
@@ -155,11 +150,6 @@ msgid "Team registration freeze start"
 msgstr "Czas zamrożenia rejestracji drużyn"
 
 #: team_registration/models.py:40
-#, fuzzy
-#| msgid ""
-#| "After team freeze the team "
-#| "participants                                       cannot be changed, but "
-#| "the teams can                                       still be reordered."
 msgid ""
 "After team freeze the team participants cannot be changed, but the teams can "
 "still be reordered."
