@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-13 01:02+0100\n"
+"POT-Creation-Date: 2016-02-22 18:21+0100\n"
 "PO-Revision-Date: 2015-02-06 14:31+01\n"
 "Last-Translator: Paweł Jan Czochański <czochanski@gmail.com>\n"
 "Language-Team: pl\n"
@@ -19,10 +19,12 @@ msgstr ""
 "|| n%100>=20) ? 1 : 2);\n"
 
 #: registero/default_settings.py:128 registero/settings.py:134
+#: registero/settings_production.py:142
 msgid "English"
 msgstr "Angielski"
 
 #: registero/default_settings.py:129 registero/settings.py:135
+#: registero/settings_production.py:143
 msgid "Polish"
 msgstr "Polski"
 
@@ -39,8 +41,8 @@ msgid "Internal server error."
 msgstr "Błąd serwera."
 
 #: templates/base.html:16 templates/secondary_base.html.py:13
-msgid "Podlachia Team Programming Contest 2015"
-msgstr "Podlaski Turniej w Programowaniu Zespołowym 2015"
+msgid "Podlachia Team Programming Contest 2016"
+msgstr "Podlaski Turniej w Programowaniu Zespołowym 2016"
 
 #: templates/base.html:47
 msgid "Navigation"
@@ -156,12 +158,12 @@ msgstr "Dogodne miejsce i termin"
 
 #: templates/base.html:166
 msgid ""
-"21-22 od March (Hooky Day) is the perfect time to run off from classes to "
-"Białystok University of Technology Information Technology Faculty building "
-"and win yourself a trophy."
+"9-10 of April is the perfect time to run off from classes to Białystok "
+"University of Technology Information Technology Faculty building and win "
+"yourself a trophy."
 msgstr ""
-"21-22 marca (dzień wagarowicza) to idealny termin, by opuścić zajęcia ruszyć "
-"na Wydział Informatyki Politechniki Białostockiej i zdobyć laur zwycięzcy."
+"9-10 kwietnia to idealny termin, by opuścić zajęcia ruszyć na Wydział "
+"Informatyki Politechniki Białostockiej i zdobyć laur zwycięzcy."
 
 #: templates/base.html:187
 msgid "Become a sponsor"
@@ -182,10 +184,10 @@ msgstr ""
 
 #: templates/footer.html:21
 msgid ""
-"Copyright &copy; STOS 2015. All rights reserved. Photos from the X Podlachia "
+"Copyright &copy; STOS 2016. All rights reserved. Photos from the X Podlachia "
 "Team Programming Contest &copy; to Paweł Tadejko"
 msgstr ""
-"&copy; STOS 2015. Wszystkie prawa zastrzeżone. Zdjęcia z X Podlaskiego "
+"&copy; STOS 2016. Wszystkie prawa zastrzeżone. Zdjęcia z X Podlaskiego "
 "Turnieju w Programowaniu Zespołowym &copy; Paweł Tadejko"
 
 #: templates/registration/activate.html:7
