@@ -4,7 +4,7 @@
 
 {% trans "To activate your new account please visit the following URL:" %}
 
-{{ protocol }}://{{ site }}/accounts/activate/{{ activation_key }}/
+http://{{ site }}/accounts/activate/{{ activation_key }}/
 
 {% trans "Thank you" %}
 {% trans "The Podlachia Team Programming Contest organizers" %}
