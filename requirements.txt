@@ -1,6 +1,6 @@
-Django>=1.7.1
-django-registration-redux>=1.1
-django-bootstrap3>=5.0.3
-django-localflavor>=1.1
-django-solo>=1.1.0
-django-guardian>=1.4.1
+Django==1.8.9
+django-registration-redux==1.1
+django-bootstrap3==5.0.3
+django-localflavor==1.1
+django-solo==1.1.0
+django-guardian==1.4.1
