@@ -43,6 +43,12 @@ class TeamRegistrationConfiguration(SingletonModel):
     registration_end = models.DateTimeField(
         _("Team registration end"), default=thirty_days_from_now)
 
+    contest_start = models.DateTimeField(
+        _("Contest start"), default=timezone.now)
+
+    contest_end = models.DateTimeField(
+        _("Contest end"), default=timezone.now)
+
     @property
     def is_registration_active(self):
         """Return true if registration is active."""

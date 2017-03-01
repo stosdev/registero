@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-22 18:21+0100\n"
+"POT-Creation-Date: 2017-03-01 21:11+0100\n"
 "PO-Revision-Date: 2015-02-06 14:31+01\n"
 "Last-Translator: Paweł Jan Czochański <czochanski@gmail.com>\n"
 "Language-Team: pl\n"
@@ -18,13 +18,11 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 
-#: registero/default_settings.py:128 registero/settings.py:134
-#: registero/settings_production.py:142
+#: registero/default_settings.py:158 registero/settings.py:158
 msgid "English"
 msgstr "Angielski"
 
-#: registero/default_settings.py:129 registero/settings.py:135
-#: registero/settings_production.py:143
+#: registero/default_settings.py:159 registero/settings.py:159
 msgid "Polish"
 msgstr "Polski"
 
@@ -40,7 +38,7 @@ msgstr "Żądana strona nie istnieje."
 msgid "Internal server error."
 msgstr "Błąd serwera."
 
-#: templates/base.html:16 templates/secondary_base.html.py:13
+#: templates/base.html:16 templates/secondary_base.html:13
 msgid "Podlachia Team Programming Contest 2016"
 msgstr "Podlaski Turniej w Programowaniu Zespołowym 2016"
 
@@ -56,11 +54,11 @@ msgstr "Do góry"
 msgid "About"
 msgstr "O turnieju"
 
-#: templates/base.html:56 templates/base.html.py:118
+#: templates/base.html:56 templates/base.html:118
 msgid "Details"
 msgstr "Cechy turnieju"
 
-#: templates/base.html:59 templates/base.html.py:180
+#: templates/base.html:59 templates/base.html:180
 msgid "Sponsors"
 msgstr "Sponsorzy"
 
@@ -68,11 +66,11 @@ msgstr "Sponsorzy"
 msgid "News"
 msgstr "Aktualności"
 
-#: templates/base.html:65 templates/footer.html.py:8
+#: templates/base.html:65 templates/footer.html:8
 msgid "Contact"
 msgstr "Kontakt"
 
-#: templates/base.html:75 templates/secondary_base.html.py:48
+#: templates/base.html:75 templates/secondary_base.html:48
 msgctxt "Logo text"
 msgid "Podlachia Team Programming Contest"
 msgstr "Podlaski Turniej<br />w Programowaniu Zespołowym"
@@ -85,7 +83,7 @@ msgstr "Zarejestruj drużynę i weź udział!"
 msgid "Team registration will start on"
 msgstr "Rejestracja drużyn rozpocznie się"
 
-#: templates/base.html:83 templates/base.html.py:87 templates/base.html:90
+#: templates/base.html:83 templates/base.html:87 templates/base.html:90
 #: templates/registration/activation_complete.html:9 templates/usermenu.html:16
 msgid "Register teams"
 msgstr "Zarejestruj drużyny"
@@ -158,12 +156,13 @@ msgstr "Dogodne miejsce i termin"
 
 #: templates/base.html:166
 msgid ""
-"9-10 of April is the perfect time to run off from classes to Białystok "
-"University of Technology Information Technology Faculty building and win "
-"yourself a trophy."
+"%(start_day)s - %(end_day)s of %(month)s is the perfect time to run off from "
+"classes to Białystok University of Technology Information Technology Faculty "
+"building and win yourself a trophy."
 msgstr ""
-"9-10 kwietnia to idealny termin, by opuścić zajęcia ruszyć na Wydział "
-"Informatyki Politechniki Białostockiej i zdobyć laur zwycięzcy."
+"%(start_day)s - %(end_day)s %(month)s to idealny termin, "
+"by opuścić zajęcia, ruszyć na Wydział Informatyki Politechniki Białostockiej i "
+"zdobyć laur zwycięzcy."
 
 #: templates/base.html:187
 msgid "Become a sponsor"
@@ -242,7 +241,7 @@ msgstr "Wyślij"
 msgid "Not a member?"
 msgstr "Nie masz konta?"
 
-#: templates/registration/login.html:16 templates/usermenu.html.py:30
+#: templates/registration/login.html:16 templates/usermenu.html:30
 msgid "Register"
 msgstr "Zarejestruj się"
 
@@ -355,7 +354,7 @@ msgstr ""
 "uczestnikami. Rejestracja konta jest równoznaczna z akceptacją <a href="
 "\"%(regulations_url)s\">regulaminu</a>."
 
-#: templates/usermenu.html:7 templates/usermenu.html.py:27
+#: templates/usermenu.html:7 templates/usermenu.html:27
 msgid "Welcome"
 msgstr "Witamy"
 

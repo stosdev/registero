@@ -163,7 +163,7 @@
                   <h4>
                     <strong>{% trans "Convinient time and place" %}</strong>
                   </h4>
-                  <p>{% trans "9-10 of April is the perfect time to run off from classes to Białystok University of Technology Information Technology Faculty building and win yourself a trophy." %}</p>
+                  <p>{% blocktrans with start_day=registration_config.contest_start|date:"j" end_day=registration_config.contest_end|date:"j" month=registration_config.contest_start|date:"F" %}{{ start_day }} - {{ end_day }} of {{ month }} is the perfect time to run off from classes to Białystok University of Technology Information Technology Faculty building and win yourself a trophy.{% endblocktrans %}</p>
                 </div>
               </div>
             </div>
