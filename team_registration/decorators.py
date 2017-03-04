@@ -2,7 +2,7 @@
 
 from django.core.exceptions import PermissionDenied
 
-from models import TeamRegistrationConfiguration
+from .models import TeamRegistrationConfiguration
 
 
 def team_registration_active(function):

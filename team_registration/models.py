@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.utils.translation import ugettext as _
 from django.utils import timezone
+from django.utils.six import python_2_unicode_compatible
 
 from django.contrib.auth.models import User
 
@@ -22,6 +23,7 @@ def twenty_five_days_from_now():
     return timezone.now() + timedelta(days=25)
 
 
+@python_2_unicode_compatible
 class TeamRegistrationConfiguration(SingletonModel):
     """Class for storing global registration configuration."""
 
@@ -90,10 +92,11 @@ class TeamRegistrationConfiguration(SingletonModel):
     class Meta:
         verbose_name = _("Team registration configuration")
 
-    def __unicode__(self):
+    def __str__(self):
         return u"Team registration configuration"
 
 
+@python_2_unicode_compatible
 class CoachProfile(models.Model):
     """The team coaches profile which has details about the teams origin."""
 
@@ -168,10 +171,11 @@ class CoachProfile(models.Model):
     def get_absolute_url(self):
         return reverse('team.views.management', args=())
 
-    def __unicode__(self):
+    def __str__(self):
         return u'{} {}'.format(self.user, self.institute_name)
 
 
+@python_2_unicode_compatible
 class Team(models.Model):
     """A model representing the team."""
 
@@ -194,10 +198,11 @@ class Team(models.Model):
     _participant_count.short_description = _("Number of participants")
     participant_count = property(_participant_count)
 
-    def __unicode__(self):
+    def __str__(self):
         return u'Team {} for {}'.format(self.order, self.coach)
 
 
+@python_2_unicode_compatible
 class Participant(models.Model):
     """The participant model, each participant has a name and a
     shirt size and belongs to a given team."""
@@ -235,5 +240,5 @@ class Participant(models.Model):
     def get_absolute_url(self):
         return reverse('team.views.management', args=())
 
-    def __unicode__(self):
+    def __str__(self):
         return u'{} {}'.format(self.first_name, self.last_name)

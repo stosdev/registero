@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.forms import ModelForm, Textarea, ValidationError
 from localflavor.pl.forms import PLNIPField
-from models import Team, Participant, CoachProfile
+from .models import Team, Participant, CoachProfile
 from django.shortcuts import get_object_or_404
 
 from django.utils.translation import ugettext as _

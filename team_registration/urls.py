@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.conf.urls import url
-from views import TeamManagementView, TeamCreateView, TeamDeleteView, \
+from .views import TeamManagementView, TeamCreateView, TeamDeleteView, \
     TeamReorderView, ParticipantCreateView, ParticipantDeleteView, \
     ParticipantUpdateView
 

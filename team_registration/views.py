@@ -5,14 +5,15 @@ from django.views.generic.base import RedirectView
 from django.views.generic import View
 from django.core.exceptions import ObjectDoesNotExist, PermissionDenied
 from django.utils.decorators import method_decorator
+from django.utils.six.moves import range
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse_lazy
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponse
 
-from models import Team, Participant, TeamRegistrationConfiguration
-from forms import CoachProfileModelForm, ParticipantModelForm
-from decorators import team_registration_active, team_registration_unfrozen
+from .models import Team, Participant, TeamRegistrationConfiguration
+from .forms import CoachProfileModelForm, ParticipantModelForm
+from .decorators import team_registration_active, team_registration_unfrozen
 
 import json
 
@@ -186,7 +187,7 @@ class TeamDeleteView(DeleteView):
         response = super(TeamDeleteView, self).delete(request, *args, **kwargs)
 
         teams = Team.objects.filter(coach=request.user).order_by('order')
-        for team, order in zip(teams, xrange(1, len(teams) + 1)):
+        for team, order in zip(teams, range(1, len(teams) + 1)):
             team.order = order
             team.save()
 

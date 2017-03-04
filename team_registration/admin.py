@@ -8,7 +8,7 @@ from django.shortcuts import render_to_response
 
 from django.template.defaultfilters import yesno
 
-from models import TeamRegistrationConfiguration, CoachProfile, Team,\
+from .models import TeamRegistrationConfiguration, CoachProfile, Team,\
     Participant
 
 from solo.admin import SingletonModelAdmin
@@ -21,15 +21,15 @@ def export_teams_cvs(modeladmin, request, queryset):
     response['Content-Disposition'] = 'attachment; filename=teams.csv'
     writer = csv.writer(response)
     writer.writerow([
-        smart_str(unicode(_("Institute name"))),
-        smart_str(unicode(_("Institute type"))),
-        smart_str(unicode(_("Accomodation required"))),
-        smart_str(unicode(_("Coach"))),
-        smart_str(unicode(_("Team order"))),
-        smart_str(unicode(_("Approved"))),
-        smart_str(unicode(_("First name"))),
-        smart_str(unicode(_("Last name"))),
-        smart_str(unicode(_("Shirt size"))),
+        smart_str(_("Institute name")),
+        smart_str(_("Institute type")),
+        smart_str(_("Accomodation required")),
+        smart_str(_("Coach")),
+        smart_str(_("Team order")),
+        smart_str(_("Approved")),
+        smart_str(_("First name")),
+        smart_str(_("Last name")),
+        smart_str(_("Shirt size")),
     ])
     for team in queryset.all():
         for participant in team.participants.all():
@@ -82,15 +82,15 @@ def export_institutes(modeladmin, request, queryset):
     response['Content-Disposition'] = 'attachment; filename=institutes.csv'
     writer = csv.writer(response)
     writer.writerow([
-        smart_str(unicode(_("Institute name"))),
-        smart_str(unicode(_("Institute type"))),
-        smart_str(unicode(_("Number of valid teams"))),
-        smart_str(unicode(_("Number of approved teams"))),
-        smart_str(unicode(_("Number of participants"))),
-        smart_str(unicode(_("Accomodation required"))),
-        smart_str(unicode(_("Institute address"))),
-        smart_str(unicode(_("Institutes NIP"))),
-        smart_str(unicode(_("Comment"))),
+        smart_str(_("Institute name")),
+        smart_str(_("Institute type")),
+        smart_str(_("Number of valid teams")),
+        smart_str(_("Number of approved teams")),
+        smart_str(_("Number of participants")),
+        smart_str(_("Accomodation required")),
+        smart_str(_("Institute address")),
+        smart_str(_("Institutes NIP")),
+        smart_str(_("Comment")),
     ])
     for profile in queryset.all():
         writer.writerow([
